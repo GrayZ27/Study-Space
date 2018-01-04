@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>702078767231-r06hco8dk5rma1ac4apfo7kdboor49cf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.702078767231-r06hco8dk5rma1ac4apfo7kdboor49cf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBd2FpUN8dgM4UlJGnEGDUH-IYgwM8HW3o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>702078767231</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.graystudio.Study-Space</string>
+	<key>PROJECT_ID</key>
+	<string>study-space-52d37</string>
+	<key>STORAGE_BUCKET</key>
+	<string>study-space-52d37.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:702078767231:ios:d79cd891f8f81c24</string>
+	<key>DATABASE_URL</key>
+	<string>https://study-space-52d37.firebaseio.com</string>
+</dict>
+</plist>
