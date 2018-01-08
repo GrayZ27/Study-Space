@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */; };
-		064C8E8E1FFEA96700C8C361 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8D1FFEA96700C8C361 /* FirstViewController.swift */; };
-		064C8E901FFEA96700C8C361 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8F1FFEA96700C8C361 /* SecondViewController.swift */; };
+		064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8D1FFEA96700C8C361 /* BoardViewController.swift */; };
+		064C8E901FFEA96700C8C361 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8F1FFEA96700C8C361 /* GroupViewController.swift */; };
 		064C8E931FFEA96700C8C361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C8E911FFEA96700C8C361 /* Main.storyboard */; };
 		064C8E951FFEA96800C8C361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064C8E941FFEA96800C8C361 /* Assets.xcassets */; };
 		064C8E981FFEA96800C8C361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C8E961FFEA96800C8C361 /* LaunchScreen.storyboard */; };
 		064C8EA51FFEAFD800C8C361 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 064C8EA41FFEAFD800C8C361 /* GoogleService-Info.plist */; };
 		064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8EAB1FFEB59200C8C361 /* DataServices.swift */; };
 		064C8EAE1FFEB5DD00C8C361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8EAD1FFEB5DD00C8C361 /* Constants.swift */; };
+		066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C02002C73500DC20E0 /* CustomUITextField.swift */; };
+		066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */; };
+		066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C42002CF4F00DC20E0 /* AuthServices.swift */; };
 		06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */; };
 		06AFA09F1FFEFAC900AB61B8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09E1FFEFAC900AB61B8 /* SignInViewController.swift */; };
 		A04E56C1411CF7460DE8FE65 /* Pods_Study_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5D3E820B0FBFEB0D46D181 /* Pods_Study_Space.framework */; };
@@ -24,8 +27,8 @@
 /* Begin PBXFileReference section */
 		064C8E881FFEA96700C8C361 /* Study Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		064C8E8D1FFEA96700C8C361 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		064C8E8F1FFEA96700C8C361 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		064C8E8D1FFEA96700C8C361 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		064C8E8F1FFEA96700C8C361 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		064C8E921FFEA96700C8C361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		064C8E941FFEA96800C8C361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		064C8E971FFEA96800C8C361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +36,9 @@
 		064C8EA41FFEAFD800C8C361 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		064C8EAB1FFEB59200C8C361 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		064C8EAD1FFEB5DD00C8C361 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		066FC3C02002C73500DC20E0 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUIView.swift; sourceTree = "<group>"; };
+		066FC3C42002CF4F00DC20E0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06AFA09E1FFEFAC900AB61B8 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		10A652BAF1143E90B3D7FD0B /* Pods-Study Space.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Space.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Space/Pods-Study Space.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,8 +98,8 @@
 		064C8E9F1FFEAA6F00C8C361 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				064C8E8D1FFEA96700C8C361 /* FirstViewController.swift */,
-				064C8E8F1FFEA96700C8C361 /* SecondViewController.swift */,
+				064C8E8D1FFEA96700C8C361 /* BoardViewController.swift */,
+				064C8E8F1FFEA96700C8C361 /* GroupViewController.swift */,
 				06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */,
 				06AFA09E1FFEFAC900AB61B8 /* SignInViewController.swift */,
 			);
@@ -103,6 +109,8 @@
 		064C8EA01FFEAA8500C8C361 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				066FC3C02002C73500DC20E0 /* CustomUITextField.swift */,
+				066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				064C8EAB1FFEB59200C8C361 /* DataServices.swift */,
+				066FC3C42002CF4F00DC20E0 /* AuthServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -293,9 +302,12 @@
 				06AFA09F1FFEFAC900AB61B8 /* SignInViewController.swift in Sources */,
 				06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */,
 				064C8EAE1FFEB5DD00C8C361 /* Constants.swift in Sources */,
-				064C8E901FFEA96700C8C361 /* SecondViewController.swift in Sources */,
+				064C8E901FFEA96700C8C361 /* GroupViewController.swift in Sources */,
+				066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */,
+				066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */,
 				064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */,
-				064C8E8E1FFEA96700C8C361 /* FirstViewController.swift in Sources */,
+				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
+				064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

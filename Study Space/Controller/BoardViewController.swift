@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  BoardViewController.swift
 //  Study Space
 //
 //  Created by Gray Zhen on 1/4/18.
@@ -8,15 +8,11 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class BoardViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
     }
-    
-    //IBActions
-    @IBAction func dismissBtnPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
 
 }
+
