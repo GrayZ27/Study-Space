@@ -13,7 +13,7 @@ class AuthServices {
     
     static let instance = AuthServices()
     
-    private func registerUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
+    func registerUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             
             if let user = user, let userEmail = user.email {
@@ -28,15 +28,28 @@ class AuthServices {
         }
     }
     
-    private func loginUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
+    func loginUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
-            guard let _ = user else {
+            if error != nil {
                 complete(false, error)
                 return
             }
             
             complete(true, nil)
+            
+        }
+    }
+    
+    func logoutUser(whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
+        if Auth.auth().currentUser != nil {
+            
+            do {
+                try Auth.auth().signOut()
+                complete(true, nil)
+            }catch let error as NSError {
+                complete(false, error)
+            }
             
         }
     }

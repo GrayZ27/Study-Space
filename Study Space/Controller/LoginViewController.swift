@@ -53,9 +53,37 @@ class LoginViewController: UIViewController {
     }
     
     //IBActions
+    @IBAction func loginBtnPressed(_ sender: UIButton) {
+        if loginEmailTextField.text != nil && loginEmailTextField.text != "" {
+            guard let email = loginEmailTextField.text else { return }
+            if loginPasswordTextField.text != nil && loginPasswordTextField.text != "" {
+                guard let password = loginPasswordTextField.text else { return }
+                AuthServices.instance.loginUser(withEmail: email, andPassword: password, whenCompleted: { (success, error) in
+                    if success {
+                        guard let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardView") else { return}
+                        self.present(boardVC, animated: true, completion: nil)
+                    }else {
+                        self.toShowAlert(message: error?.localizedDescription ?? "Can't login user, please try again later.")
+                    }
+                })
+            }else {
+                toShowAlert(message: "Please enter your password to login.")
+            }
+        }else {
+            toShowAlert(message: "Please enter your email to login.")
+        }
+    }
+    
     @IBAction func signUpByEmailBtnPressed(_ sender: UIButton) {
         guard let signUpView = storyboard?.instantiateViewController(withIdentifier: "SignUpView") else { return }
         present(signUpView, animated: true, completion: nil)
+    }
+    
+    private func toShowAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
     
 }
