@@ -35,6 +35,9 @@ class CustomUITextField: UITextField {
         
         let placeholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 0.9543312014, blue: 0.9730788859, alpha: 0.5)])
         self.attributedPlaceholder = placeholder
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 2
+        self.layer.shadowColor = UIColor.white.cgColor
         
     }
 
