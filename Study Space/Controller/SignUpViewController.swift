@@ -43,6 +43,10 @@ class SignUpViewController: UIViewController {
     
     //sign up user here
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
+        signUpUser()
+    }
+    
+    private func signUpUser() {
         if signUpEmailTextField.text != nil && signUpEmailTextField.text != "" {
             guard let email = signUpEmailTextField.text else { return }
             if isValidEmail(email) {
@@ -119,7 +123,7 @@ extension SignUpViewController: UITextFieldDelegate {
         
         if textField.returnKeyType == .done {
             textField.resignFirstResponder()
-            print("I'll do sign up later")
+            signUpUser()
         }
         
         return true

@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
         
         bgImageHeightLayoutConstraint.constant = view.frame.size.height / 2 + 20
         loginViewWidthLayoutConstraint.constant = view.frame.size.width - 32
-        loginViewHeightLayoutConstraint.constant = view.frame.size.height * 0.55
+        loginViewHeightLayoutConstraint.constant = view.frame.size.height * 0.57
         loginTextFieldStackViewHeightLayoutConstraint.constant = loginViewHeightLayoutConstraint.constant * 0.4
         loginOptionsStackViewHeightLayoutConstraint.constant = loginViewHeightLayoutConstraint.constant * 0.12
         
@@ -54,6 +54,10 @@ class LoginViewController: UIViewController {
     
     //IBActions
     @IBAction func loginBtnPressed(_ sender: UIButton) {
+        loginUser()
+    }
+    
+    private func loginUser() {
         if loginEmailTextField.text != nil && loginEmailTextField.text != "" {
             guard let email = loginEmailTextField.text else { return }
             if loginPasswordTextField.text != nil && loginPasswordTextField.text != "" {
@@ -79,6 +83,11 @@ class LoginViewController: UIViewController {
         present(signUpView, animated: true, completion: nil)
     }
     
+    @IBAction func forgotPasswordReset(_ sender: UIButton) {
+        guard let resetPasswordVC = storyboard?.instantiateViewController(withIdentifier: "ResetPasswordView") else { return }
+        present(resetPasswordVC, animated: true, completion: nil)
+    }
+    
     private func toShowAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -98,7 +107,7 @@ extension LoginViewController: UITextFieldDelegate {
         
         if textField.returnKeyType == .done {
             textField.resignFirstResponder()
-            print("I'll do Login later")
+            loginUser()
         }
         
         return true

@@ -54,4 +54,18 @@ class AuthServices {
         }
     }
     
+    func forgotPasswordReset(withEmail email: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()){
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            
+            if error == nil {
+                complete(true, nil)
+            }else {
+                complete(false, error)
+            }
+            
+        }
+        
+    }
+    
 }
