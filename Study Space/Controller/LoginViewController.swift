@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     //UIOutlets
     @IBOutlet weak var loginEmailTextField: CustomUITextField!
     @IBOutlet weak var loginPasswordTextField: CustomUITextField!
+    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
     
     //UIOutlets for Layout Constraint
     @IBOutlet weak var bgImageHeightLayoutConstraint: NSLayoutConstraint!
@@ -28,7 +29,7 @@ class LoginViewController: UIViewController {
         loginPasswordTextField.delegate = self
         
         viewWillSetup()
-        
+        loginIndicator.isHidden = true
         let tapToDismissKeyboard = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tapToDismissKeyboard)
         
@@ -62,7 +63,11 @@ class LoginViewController: UIViewController {
             guard let email = loginEmailTextField.text else { return }
             if loginPasswordTextField.text != nil && loginPasswordTextField.text != "" {
                 guard let password = loginPasswordTextField.text else { return }
+                loginIndicator.isHidden = false
+                loginIndicator.startAnimating()
                 AuthServices.instance.loginUser(withEmail: email, andPassword: password, whenCompleted: { (success, error) in
+                    self.loginIndicator.isHidden = true
+                    self.loginIndicator.stopAnimating()
                     if success {
                         guard let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardView") else { return}
                         self.present(boardVC, animated: true, completion: nil)

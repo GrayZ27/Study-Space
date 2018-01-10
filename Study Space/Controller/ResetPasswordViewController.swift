@@ -12,12 +12,14 @@ class ResetPasswordViewController: UIViewController {
 
     //IBOutlets
     @IBOutlet weak var emailForResetPasswordTextField: CustomUITextField!
-   
+    @IBOutlet weak var resetPasswordIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailForResetPasswordTextField.delegate = self
         let tapToDismissKeyboard = UITapGestureRecognizer(target: self, action: #selector(ResetPasswordViewController.tapToDismissKeyboard))
         view.addGestureRecognizer(tapToDismissKeyboard)
+        resetPasswordIndicator.isHidden = true
     }
     
     //IBActions
@@ -30,9 +32,11 @@ class ResetPasswordViewController: UIViewController {
         
         if emailForResetPasswordTextField.text != nil && emailForResetPasswordTextField.text != "" {
             guard let email = emailForResetPasswordTextField.text else { return }
-            
+            resetPasswordIndicator.isHidden = false
+            resetPasswordIndicator.startAnimating()
             AuthServices.instance.forgotPasswordReset(withEmail: email, whenCompleted: { (success, error) in
-                
+                self.resetPasswordIndicator.isHidden = true
+                self.resetPasswordIndicator.stopAnimating()
                 if success {
                     self.toShowAlertWithHandler(message: "Please check your email to reset your password", withStoryBoardIdentifier: "LoginView")
                 }else {

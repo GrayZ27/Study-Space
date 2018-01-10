@@ -14,13 +14,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpEmailTextField: CustomUITextField!
     @IBOutlet weak var signUpPasswordTextField: CustomUITextField!
     @IBOutlet weak var signUpReEnterPasswordTextField: CustomUITextField!
+    @IBOutlet weak var signUpIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tapToDismissKeyboard = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(tapToDismissKeyboard)
-        
+        signUpIndicator.isHidden = true
         signUpEmailTextField.delegate = self
         signUpPasswordTextField.delegate = self
         signUpReEnterPasswordTextField.delegate = self
@@ -56,9 +57,13 @@ class SignUpViewController: UIViewController {
                         if signUpReEnterPasswordTextField.text != nil && signUpReEnterPasswordTextField.text != "" {
                             guard let reEnterPassword = signUpReEnterPasswordTextField.text else { return }
                             if reEnterPassword == password {
+                                signUpIndicator.isHidden = false
+                                signUpIndicator.startAnimating()
                                 AuthServices.instance.registerUser(withEmail: email, andPassword: password, whenCompleted: { (success, error) in
                                     if success {
                                         AuthServices.instance.loginUser(withEmail: email, andPassword: password, whenCompleted: { (success, error) in
+                                            self.signUpIndicator.isHidden = true
+                                            self.signUpIndicator.stopAnimating()
                                             if success {
                                                 guard let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardView") else { return}
                                                 self.present(boardVC, animated: true, completion: nil)

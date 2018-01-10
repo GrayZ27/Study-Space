@@ -255,6 +255,10 @@
                                     <action selector="sendResetPasswordBtnPressed:" destination="msJ-kd-AX3" eventType="touchUpInside" id="SSQ-CQ-I4e"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5gE-vF-G0j">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiK-Wp-b3K">
                                 <rect key="frame" x="16" y="28" width="30" height="30"/>
                                 <constraints>
@@ -276,6 +280,8 @@
                             <constraint firstItem="uaQ-2A-YWJ" firstAttribute="leading" secondItem="Esd-Ro-tlM" secondAttribute="leading" constant="20" id="Kgb-a0-65r"/>
                             <constraint firstItem="wBp-Jh-ZHq" firstAttribute="top" secondItem="di6-Eb-dWQ" secondAttribute="bottom" constant="20" id="QVb-fT-Uxy"/>
                             <constraint firstItem="Esd-Ro-tlM" firstAttribute="trailing" secondItem="uaQ-2A-YWJ" secondAttribute="trailing" constant="20" id="R2I-3Z-SN4"/>
+                            <constraint firstItem="5gE-vF-G0j" firstAttribute="centerY" secondItem="X8f-fa-IvA" secondAttribute="centerY" id="UHx-6a-L6X"/>
+                            <constraint firstItem="5gE-vF-G0j" firstAttribute="centerX" secondItem="X8f-fa-IvA" secondAttribute="centerX" id="goL-RK-0LQ"/>
                             <constraint firstItem="hiK-Wp-b3K" firstAttribute="top" secondItem="Esd-Ro-tlM" secondAttribute="top" constant="8" id="mbX-D2-ROb"/>
                             <constraint firstItem="uaQ-2A-YWJ" firstAttribute="top" secondItem="hiK-Wp-b3K" secondAttribute="bottom" constant="20" id="qz0-RK-30f"/>
                             <constraint firstItem="di6-Eb-dWQ" firstAttribute="top" secondItem="uaQ-2A-YWJ" secondAttribute="bottom" constant="20" id="tIE-dG-RgO"/>
@@ -285,6 +291,7 @@
                     </view>
                     <connections>
                         <outlet property="emailForResetPasswordTextField" destination="di6-Eb-dWQ" id="cbW-7V-2gi"/>
+                        <outlet property="resetPasswordIndicator" destination="5gE-vF-G0j" id="txt-2R-lXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZS-01-ZFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,9 +464,15 @@
                                     <constraint firstItem="BvI-oL-BWp" firstAttribute="leading" secondItem="4yg-ld-TSV" secondAttribute="leading" constant="20" id="zHe-qO-Gr2"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tke-uA-mbJ">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="tke-uA-mbJ" firstAttribute="centerY" secondItem="Iln-cn-nRG" secondAttribute="centerY" id="2Qg-nE-8HJ"/>
+                            <constraint firstItem="tke-uA-mbJ" firstAttribute="centerX" secondItem="Iln-cn-nRG" secondAttribute="centerX" id="CFX-ig-hcB"/>
                             <constraint firstItem="i4h-T7-el6" firstAttribute="top" secondItem="Iln-cn-nRG" secondAttribute="top" id="QE2-Pc-sVA"/>
                             <constraint firstItem="i4h-T7-el6" firstAttribute="leading" secondItem="tOQ-W7-2zE" secondAttribute="leading" id="THZ-FU-2M6"/>
                             <constraint firstItem="4yg-ld-TSV" firstAttribute="centerY" secondItem="Iln-cn-nRG" secondAttribute="centerY" id="VuM-Df-ZO3"/>
@@ -473,6 +486,7 @@
                     <connections>
                         <outlet property="bgImageHeightLayoutConstraint" destination="0wI-X5-1zX" id="EOZ-Ka-11W"/>
                         <outlet property="loginEmailTextField" destination="RUW-8s-3V9" id="JIb-bl-tP2"/>
+                        <outlet property="loginIndicator" destination="tke-uA-mbJ" id="x36-BV-ubf"/>
                         <outlet property="loginOptionsStackViewHeightLayoutConstraint" destination="EH8-5D-2bA" id="VZO-08-FJb"/>
                         <outlet property="loginPasswordTextField" destination="f8p-Rg-p8R" id="dlF-gX-792"/>
                         <outlet property="loginTextFieldStackViewHeightLayoutConstraint" destination="lzA-nP-K1f" id="3lY-B0-VmH"/>
@@ -564,6 +578,10 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-aJ-Wgw">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -577,8 +595,10 @@
                             <constraint firstItem="hBz-A7-6Mx" firstAttribute="leading" secondItem="0YV-hu-Rxh" secondAttribute="leading" constant="20" id="U0q-k8-cBU"/>
                             <constraint firstItem="0YV-hu-Rxh" firstAttribute="trailing" secondItem="Wsl-ud-vEY" secondAttribute="trailing" constant="20" id="bzg-zb-I1j"/>
                             <constraint firstItem="0YV-hu-Rxh" firstAttribute="trailing" secondItem="e9Z-Nc-Hse" secondAttribute="trailing" constant="20" id="c2R-4F-TEj"/>
+                            <constraint firstItem="YSW-aJ-Wgw" firstAttribute="centerY" secondItem="UUb-2v-qUQ" secondAttribute="centerY" id="c6r-Ij-QCk"/>
                             <constraint firstItem="bE5-tz-VSg" firstAttribute="leading" secondItem="0YV-hu-Rxh" secondAttribute="leading" constant="20" id="chj-uY-be3"/>
                             <constraint firstItem="0YV-hu-Rxh" firstAttribute="trailing" secondItem="hBz-A7-6Mx" secondAttribute="trailing" constant="20" id="g0C-72-dTp"/>
+                            <constraint firstItem="YSW-aJ-Wgw" firstAttribute="centerX" secondItem="UUb-2v-qUQ" secondAttribute="centerX" id="ido-1W-NC1"/>
                             <constraint firstItem="0YV-hu-Rxh" firstAttribute="trailing" secondItem="bE5-tz-VSg" secondAttribute="trailing" constant="20" id="lHB-hS-LbF"/>
                             <constraint firstItem="Wsl-ud-vEY" firstAttribute="leading" secondItem="0YV-hu-Rxh" secondAttribute="leading" constant="20" id="tOG-Tt-fqP"/>
                         </constraints>
@@ -586,6 +606,7 @@
                     </view>
                     <connections>
                         <outlet property="signUpEmailTextField" destination="z9Q-tk-I8w" id="Bba-Aa-Yc3"/>
+                        <outlet property="signUpIndicator" destination="YSW-aJ-Wgw" id="QpM-qk-kTq"/>
                         <outlet property="signUpPasswordTextField" destination="Xbe-eE-gC6" id="oUy-Qa-yBQ"/>
                         <outlet property="signUpReEnterPasswordTextField" destination="wXP-o6-hwe" id="B0b-GI-Tx7"/>
                     </connections>
