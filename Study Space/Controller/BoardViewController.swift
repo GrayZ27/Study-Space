@@ -13,6 +13,8 @@ class BoardViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
     }
+    
+    
 
 }
 

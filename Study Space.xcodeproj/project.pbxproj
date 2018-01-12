@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D2102007F3370092CCFE /* PostMessageViewController.swift */; };
+		0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */; };
 		0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71A2004011600B7DADF /* CustomUIButton.swift */; };
 		0625F71D2004056E00B7DADF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71C2004056E00B7DADF /* SignUpViewController.swift */; };
 		064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */; };
@@ -17,7 +19,6 @@
 		064C8E981FFEA96800C8C361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064C8E961FFEA96800C8C361 /* LaunchScreen.storyboard */; };
 		064C8EA51FFEAFD800C8C361 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 064C8EA41FFEAFD800C8C361 /* GoogleService-Info.plist */; };
 		064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8EAB1FFEB59200C8C361 /* DataServices.swift */; };
-		064C8EAE1FFEB5DD00C8C361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8EAD1FFEB5DD00C8C361 /* Constants.swift */; };
 		064F61242005757500D11C14 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F61232005757500D11C14 /* MeViewController.swift */; };
 		066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C02002C73500DC20E0 /* CustomUITextField.swift */; };
 		066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0617D2102007F3370092CCFE /* PostMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
+		0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtForKeyboard.swift; sourceTree = "<group>"; };
 		0625F71A2004011600B7DADF /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		0625F71C2004056E00B7DADF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		064C8E881FFEA96700C8C361 /* Study Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +43,6 @@
 		064C8E991FFEA96800C8C361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		064C8EA41FFEAFD800C8C361 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		064C8EAB1FFEB59200C8C361 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
-		064C8EAD1FFEB5DD00C8C361 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		064F61232005757500D11C14 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		066FC3C02002C73500DC20E0 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUIView.swift; sourceTree = "<group>"; };
@@ -85,7 +87,6 @@
 		064C8E8A1FFEA96700C8C361 /* Study Space */ = {
 			isa = PBXGroup;
 			children = (
-				064C8EA81FFEB4FD00C8C361 /* Support Files */,
 				064C8EA31FFEAAA700C8C361 /* Services */,
 				064C8EA21FFEAA9A00C8C361 /* Extensions */,
 				064C8EA11FFEAA9300C8C361 /* Model */,
@@ -110,6 +111,7 @@
 				06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */,
 				0625F71C2004056E00B7DADF /* SignUpViewController.swift */,
 				06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */,
+				0617D2102007F3370092CCFE /* PostMessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,6 +136,7 @@
 		064C8EA21FFEAA9A00C8C361 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,14 +148,6 @@
 				066FC3C42002CF4F00DC20E0 /* AuthServices.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		064C8EA81FFEB4FD00C8C361 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				064C8EAD1FFEB5DD00C8C361 /* Constants.swift */,
-			);
-			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		903A5D195538D513EE407A21 /* Pods */ = {
@@ -309,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */,
-				064C8EAE1FFEB5DD00C8C361 /* Constants.swift in Sources */,
 				064C8E901FFEA96700C8C361 /* GroupViewController.swift in Sources */,
 				066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */,
 				066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */,
@@ -318,8 +312,10 @@
 				0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */,
 				064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */,
 				06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */,
+				0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */,
 				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
 				064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */,
+				0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

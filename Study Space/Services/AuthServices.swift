@@ -18,7 +18,7 @@ class AuthServices {
             
             if let user = user, let userEmail = user.email {
                 let userData: Dictionary<String, Any> = ["provider" : user.providerID, "email": userEmail]
-                DataServices.instance.createDatabaseUser(withId: user.uid, andUserInfo: userData)
+                DataServices.instance.createDatabaseUser(withUID: user.uid, andUserInfo: userData)
                 complete(true, nil)
             }else {
                 complete(false, error)

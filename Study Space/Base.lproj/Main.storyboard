@@ -14,6 +14,9 @@
         <array key="GujaratiSangamMN.ttc">
             <string>GujaratiSangamMN</string>
         </array>
+        <array key="Kailasa.ttc">
+            <string>Kailasa</string>
+        </array>
         <array key="MarkerFeltThin.ttf">
             <string>MarkerFelt-Thin</string>
         </array>
@@ -46,6 +49,9 @@
                                             <constraint firstAttribute="width" constant="30" id="OSs-Za-kf2"/>
                                         </constraints>
                                         <state key="normal" image="compose"/>
+                                        <connections>
+                                            <segue destination="tOb-64-YqA" kind="presentation" id="gjx-oN-TVE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,6 +95,131 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Post Message View Controller-->
+        <scene sceneID="Qhj-EE-8Yv">
+            <objects>
+                <viewController id="tOb-64-YqA" customClass="PostMessageViewController" customModule="Study_Space" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jst-lr-Zpv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-gu-FIR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-8i-PDJ">
+                                        <rect key="frame" x="164.5" y="26" width="47" height="28"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-TX-FLP">
+                                        <rect key="frame" x="16" y="25" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="RcL-I5-bKC"/>
+                                            <constraint firstAttribute="height" constant="30" id="UaM-TX-Mev"/>
+                                        </constraints>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="dismissBtnPressed:" destination="tOb-64-YqA" eventType="touchUpInside" id="T3p-yy-YnR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Bwz-8i-PDJ" firstAttribute="top" secondItem="0cU-gu-FIR" secondAttribute="top" constant="26" id="1YN-H3-F25"/>
+                                    <constraint firstItem="Bwz-8i-PDJ" firstAttribute="centerX" secondItem="0cU-gu-FIR" secondAttribute="centerX" id="8AN-Oc-wxS"/>
+                                    <constraint firstItem="aFz-TX-FLP" firstAttribute="leading" secondItem="0cU-gu-FIR" secondAttribute="leading" constant="16" id="DOf-Id-lSi"/>
+                                    <constraint firstAttribute="height" constant="60" id="Je5-mO-wNy"/>
+                                    <constraint firstItem="aFz-TX-FLP" firstAttribute="centerY" secondItem="Bwz-8i-PDJ" secondAttribute="centerY" id="w3Y-cM-vQ6"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="UWh-IS-vUT">
+                                <rect key="frame" x="16" y="68" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="R2p-aa-26i"/>
+                                    <constraint firstAttribute="width" constant="70" id="Tka-8j-Lrb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gray@studyspace.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyl-CQ-Ohn">
+                                <rect key="frame" x="102" y="88.5" width="257" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FEX-88-f36"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.67450980390000004" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVn-5z-tVS">
+                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I want to say ......" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vlk-gJ-sG2">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="471"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="alert"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-8n-cml">
+                                        <rect key="frame" x="0.0" y="471" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.16770461201667786" green="0.17722064256668091" blue="0.21450608968734741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="E6m-OK-PiQ"/>
+                                        </constraints>
+                                        <state key="normal" title="  Send Message" image="send">
+                                            <color key="titleColor" red="1" green="0.95433120140000005" blue="0.97307888590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendMessageBtnPressed:" destination="tOb-64-YqA" eventType="touchUpInside" id="3HN-0z-8F7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dbm-8n-cml" secondAttribute="trailing" id="1cd-nE-Kdn"/>
+                                    <constraint firstItem="vlk-gJ-sG2" firstAttribute="top" secondItem="nVn-5z-tVS" secondAttribute="top" id="DHl-Hi-7KF"/>
+                                    <constraint firstAttribute="bottom" secondItem="dbm-8n-cml" secondAttribute="bottom" id="Dxe-fU-InX"/>
+                                    <constraint firstAttribute="trailing" secondItem="vlk-gJ-sG2" secondAttribute="trailing" id="KEk-JR-nZA"/>
+                                    <constraint firstItem="dbm-8n-cml" firstAttribute="top" secondItem="vlk-gJ-sG2" secondAttribute="bottom" id="PEK-vu-cPE"/>
+                                    <constraint firstItem="dbm-8n-cml" firstAttribute="leading" secondItem="nVn-5z-tVS" secondAttribute="leading" id="cEj-7y-oxe"/>
+                                    <constraint firstItem="vlk-gJ-sG2" firstAttribute="leading" secondItem="nVn-5z-tVS" secondAttribute="leading" id="tVT-ua-xHI"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ht6-TB-Kit">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ht6-TB-Kit" firstAttribute="centerX" secondItem="jst-lr-Zpv" secondAttribute="centerX" id="1Wp-dL-kdB"/>
+                            <constraint firstItem="UWh-IS-vUT" firstAttribute="leading" secondItem="ZzY-xG-xCM" secondAttribute="leading" constant="16" id="6tm-H9-2W0"/>
+                            <constraint firstItem="Vyl-CQ-Ohn" firstAttribute="leading" secondItem="UWh-IS-vUT" secondAttribute="trailing" constant="16" id="B6d-TL-csP"/>
+                            <constraint firstItem="nVn-5z-tVS" firstAttribute="trailing" secondItem="ZzY-xG-xCM" secondAttribute="trailing" id="BiS-wG-p5O"/>
+                            <constraint firstItem="0cU-gu-FIR" firstAttribute="leading" secondItem="ZzY-xG-xCM" secondAttribute="leading" id="DFE-ur-nzJ"/>
+                            <constraint firstItem="nVn-5z-tVS" firstAttribute="top" secondItem="UWh-IS-vUT" secondAttribute="bottom" constant="8" id="GoA-BX-ftc"/>
+                            <constraint firstItem="0cU-gu-FIR" firstAttribute="trailing" secondItem="ZzY-xG-xCM" secondAttribute="trailing" id="HqO-zz-RiQ"/>
+                            <constraint firstItem="nVn-5z-tVS" firstAttribute="bottom" secondItem="ZzY-xG-xCM" secondAttribute="bottom" id="LUx-1W-LdA"/>
+                            <constraint firstItem="ht6-TB-Kit" firstAttribute="centerY" secondItem="jst-lr-Zpv" secondAttribute="centerY" id="PHL-ae-I6K"/>
+                            <constraint firstItem="Vyl-CQ-Ohn" firstAttribute="centerY" secondItem="UWh-IS-vUT" secondAttribute="centerY" id="PHa-5x-HDU"/>
+                            <constraint firstItem="UWh-IS-vUT" firstAttribute="top" secondItem="0cU-gu-FIR" secondAttribute="bottom" constant="8" id="U3d-vC-xiK"/>
+                            <constraint firstItem="0cU-gu-FIR" firstAttribute="top" secondItem="jst-lr-Zpv" secondAttribute="top" id="Xi7-wQ-MgK"/>
+                            <constraint firstItem="ZzY-xG-xCM" firstAttribute="trailing" secondItem="Vyl-CQ-Ohn" secondAttribute="trailing" constant="16" id="m6R-Dj-CgO"/>
+                            <constraint firstItem="nVn-5z-tVS" firstAttribute="leading" secondItem="ZzY-xG-xCM" secondAttribute="leading" id="o6o-RC-AHW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZzY-xG-xCM"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageWillPostTextView" destination="vlk-gJ-sG2" id="sIF-qD-MYJ"/>
+                        <outlet property="sendMessageBtn" destination="dbm-8n-cml" id="3lk-ok-wsq"/>
+                        <outlet property="sendingMessageIndicator" destination="ht6-TB-Kit" id="N3J-3I-MCT"/>
+                        <outlet property="userNameLabel" destination="Vyl-CQ-Ohn" id="NIF-HG-WY3"/>
+                        <outlet property="userProfileImageView" destination="UWh-IS-vUT" id="QgM-Kn-8Qu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9uc-3i-FDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="-730"/>
         </scene>
         <!--Groups-->
         <scene sceneID="wg7-f3-ORb">
@@ -296,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZS-01-ZFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1630" y="0.0"/>
+            <point key="canvasLocation" x="-1927" y="-391"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="95y-47-kqK">
@@ -496,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnw-Zd-D5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2300" y="0.0"/>
+            <point key="canvasLocation" x="-1015" y="0.0"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="hC0-3c-56M">
@@ -613,7 +744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke0-z0-pDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922.39999999999998" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-1927" y="372"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -623,7 +754,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.2099488377571106" green="0.22366327047348022" blue="0.26840943098068237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.015686274510000001" green="0.67450980390000004" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -641,6 +772,7 @@
         <image name="addNewIcon" width="19" height="19"/>
         <image name="close" width="21" height="20"/>
         <image name="compose" width="21" height="24"/>
+        <image name="defaultProfileImage" width="102" height="102"/>
         <image name="facebook-icon" width="60" height="60"/>
         <image name="feed-tabIcon" width="25" height="21"/>
         <image name="google-icon" width="60" height="60"/>
@@ -648,6 +780,7 @@
         <image name="loginBGImage" width="375" height="284"/>
         <image name="logoutIcon" width="19" height="21"/>
         <image name="me-tabIcon" width="25" height="25"/>
+        <image name="send" width="29" height="29"/>
         <image name="twitter-icon" width="60" height="60"/>
     </resources>
     <color key="tintColor" red="0.015686274510000001" green="0.67450980390000004" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

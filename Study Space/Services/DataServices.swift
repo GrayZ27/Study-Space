@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
+let DATABASE_BASE = Database.database().reference()
+
 class DataServices {
     
     static let instance = DataServices()
@@ -16,7 +18,7 @@ class DataServices {
     private var _REF_BASE = DATABASE_BASE
     private var _REF_USERS = DATABASE_BASE.child("users")
     private var _REF_GROUPS = DATABASE_BASE.child("groups")
-    private var _REF_FEED = DATABASE_BASE.child("feed")
+    private var _REF_BOARD = DATABASE_BASE.child("board")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -30,13 +32,27 @@ class DataServices {
         return _REF_GROUPS
     }
     
-    var REF_FEED: DatabaseReference {
-        return _REF_FEED
+    var REF_BOARD: DatabaseReference {
+        return _REF_BOARD
     }
     
     //func to create users in Firebase
-    func createDatabaseUser(withId id: String, andUserInfo userInfo: Dictionary<String, Any>) {
-        REF_USERS.child(id).updateChildValues(userInfo)
+    func createDatabaseUser(withUID uid: String, andUserInfo userInfo: Dictionary<String, Any>) {
+        REF_USERS.child(uid).updateChildValues(userInfo)
     }
+    
+    //func to upload post to Firebase
+    func uploadPostToFirebase(withMessage message: String, andUID uid: String, onTime time: String, withGroupKey groupKey: String?, whenCompleted complete: @escaping (_ status: Bool) -> ()) {
+        
+        if groupKey != nil {
+            //Will post this message to group
+        }else {
+            REF_BOARD.childByAutoId().updateChildValues(["content": message, "senderId": uid, "currentTime": time])
+            complete(true)
+        }
+        
+    }
+    
+    
     
 }
