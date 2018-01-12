@@ -25,6 +25,9 @@
 		066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C42002CF4F00DC20E0 /* AuthServices.swift */; };
 		06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */; };
 		06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */; };
+		06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */; };
+		06FDB4652009376000491CD4 /* YourMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */; };
+		06FDB46920093D5800491CD4 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB46820093D5800491CD4 /* MessageData.swift */; };
 		A04E56C1411CF7460DE8FE65 /* Pods_Study_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5D3E820B0FBFEB0D46D181 /* Pods_Study_Space.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		066FC3C42002CF4F00DC20E0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersMessageTableViewCell.swift; sourceTree = "<group>"; };
+		06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourMessageTableViewCell.swift; sourceTree = "<group>"; };
+		06FDB46820093D5800491CD4 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		10A652BAF1143E90B3D7FD0B /* Pods-Study Space.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Space.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Space/Pods-Study Space.debug.xcconfig"; sourceTree = "<group>"; };
 		9B5D3E820B0FBFEB0D46D181 /* Pods_Study_Space.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Space.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F7059473FD87E871620791 /* Pods-Study Space.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Space.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Space/Pods-Study Space.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				066FC3C02002C73500DC20E0 /* CustomUITextField.swift */,
 				066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */,
 				0625F71A2004011600B7DADF /* CustomUIButton.swift */,
+				06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */,
+				06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 		064C8EA11FFEAA9300C8C361 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06FDB46820093D5800491CD4 /* MessageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FDB4652009376000491CD4 /* YourMessageTableViewCell.swift in Sources */,
 				06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */,
 				064C8E901FFEA96700C8C361 /* GroupViewController.swift in Sources */,
 				066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */,
@@ -315,6 +325,8 @@
 				0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */,
 				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
 				064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */,
+				06FDB46920093D5800491CD4 /* MessageData.swift in Sources */,
+				06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */,
 				0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,
 			);
