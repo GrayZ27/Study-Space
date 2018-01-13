@@ -27,6 +27,11 @@ class PostMessageViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        userNameLabel.text = Auth.auth().currentUser?.email
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
     }

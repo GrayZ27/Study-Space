@@ -25,6 +25,7 @@
 		066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C42002CF4F00DC20E0 /* AuthServices.swift */; };
 		06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */; };
 		06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */; };
+		06F903E4200AAB6E00FECBCB /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */; };
 		06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */; };
 		06FDB4652009376000491CD4 /* YourMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */; };
 		06FDB46920093D5800491CD4 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB46820093D5800491CD4 /* MessageData.swift */; };
@@ -52,6 +53,7 @@
 		066FC3C42002CF4F00DC20E0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersMessageTableViewCell.swift; sourceTree = "<group>"; };
 		06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourMessageTableViewCell.swift; sourceTree = "<group>"; };
 		06FDB46820093D5800491CD4 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				0625F71C2004056E00B7DADF /* SignUpViewController.swift */,
 				06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */,
 				0617D2102007F3370092CCFE /* PostMessageViewController.swift */,
+				06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
 				064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */,
 				06FDB46920093D5800491CD4 /* MessageData.swift in Sources */,
+				06F903E4200AAB6E00FECBCB /* CreateGroupViewController.swift in Sources */,
 				06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */,
 				0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,

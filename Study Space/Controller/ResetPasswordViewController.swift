@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     //IBOutlets
     @IBOutlet weak var emailForResetPasswordTextField: CustomUITextField!
@@ -22,10 +22,19 @@ class ResetPasswordViewController: UIViewController {
         resetPasswordIndicator.isHidden = true
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return UIStatusBarStyle.lightContent
+    }
+    
     //IBActions
     @IBAction func closeResetViewBtnpressed(_ sender: UIButton) {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func sendResetPasswordBtnPressed(_ sender: UIButton) {
@@ -73,9 +82,10 @@ class ResetPasswordViewController: UIViewController {
     
 }
 
-extension ResetPasswordViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
+//extension ResetPasswordViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}
+

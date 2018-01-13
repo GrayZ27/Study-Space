@@ -14,6 +14,7 @@
     <customFonts key="customFonts">
         <array key="GujaratiSangamMN.ttc">
             <string>GujaratiSangamMN</string>
+            <string>GujaratiSangamMN-Bold</string>
         </array>
         <array key="Kailasa.ttc">
             <string>Kailasa</string>
@@ -217,8 +218,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-gu-FIR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-8i-PDJ">
-                                        <rect key="frame" x="164.5" y="26" width="47" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-8i-PDJ">
+                                        <rect key="frame" x="115.5" y="26" width="145.5" height="28"/>
                                         <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -356,6 +357,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.015686274510000001" green="0.67450980390000004" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="addNewIcon"/>
+                                        <connections>
+                                            <segue destination="jWz-6f-zh0" kind="presentation" id="izz-PT-jbQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -399,6 +403,166 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+        </scene>
+        <!--Create Group View Controller-->
+        <scene sceneID="BPi-gk-S5V">
+            <objects>
+                <viewController id="jWz-6f-zh0" customClass="CreateGroupViewController" customModule="Study_Space" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mXC-uT-Kpm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3WD-S3-Db8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-El-4GB">
+                                        <rect key="frame" x="8" y="20" width="359" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNq-ve-QJq">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="34"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN-Bold" family="Gujarati Sangam MN" pointSize="16"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="closeCreateGroupBtnPressed:" destination="jWz-6f-zh0" eventType="touchUpInside" id="vbT-bS-9vg"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylt-5a-6gn">
+                                                <rect key="frame" x="86" y="0.0" width="207.5" height="34"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hq-wF-GY6">
+                                                <rect key="frame" x="293.5" y="0.0" width="65.5" height="34"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN-Bold" family="Gujarati Sangam MN" pointSize="16"/>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="doneCreateGroupBtnPressed:" destination="jWz-6f-zh0" eventType="touchUpInside" id="L0s-Qh-MeY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="QbO-El-4GB" firstAttribute="leading" secondItem="3WD-S3-Db8" secondAttribute="leading" constant="8" id="Ktf-lS-Tcb"/>
+                                    <constraint firstAttribute="height" constant="60" id="QOf-gB-kjP"/>
+                                    <constraint firstItem="QbO-El-4GB" firstAttribute="top" secondItem="3WD-S3-Db8" secondAttribute="top" constant="20" id="Und-mS-K0i"/>
+                                    <constraint firstAttribute="bottom" secondItem="QbO-El-4GB" secondAttribute="bottom" constant="6" id="UqN-r0-o84"/>
+                                    <constraint firstAttribute="trailing" secondItem="QbO-El-4GB" secondAttribute="trailing" constant="8" id="lvu-ua-VST"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxx-M5-3y5">
+                                <rect key="frame" x="16" y="68" width="343" height="22"/>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <color key="textColor" red="0.020845869556069374" green="0.65442889928817749" blue="0.76019543409347534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhb-IQ-nH5">
+                                <rect key="frame" x="16" y="148" width="343" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Zgg-hd-CfI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <color key="textColor" red="0.020845869560000001" green="0.65442889930000003" blue="0.76019543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add Group Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqZ-jz-NPc">
+                                <rect key="frame" x="16" y="228" width="343" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="3DY-ti-nnr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <color key="textColor" red="0.020845869560000001" green="0.65442889930000003" blue="0.76019543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="group name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-dR-Zw2" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="92" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.167704612" green="0.17722064260000001" blue="0.21450608970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3lo-YY-jd5"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="group description(optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-v3-Rd8" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="172" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.167704612" green="0.17722064260000001" blue="0.21450608970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QCx-el-fRj"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="add users to your group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xj7-Yp-ffW" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="252" width="343" height="70"/>
+                                <color key="backgroundColor" red="0.167704612" green="0.17722064260000001" blue="0.21450608970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4qn-Uo-UFK"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-A1-40c">
+                                <rect key="frame" x="16" y="338" width="343" height="313"/>
+                                <color key="backgroundColor" red="0.25515213609999998" green="0.27285820249999998" blue="0.31181350349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="displaySearchedUsersCell" id="eF5-IA-vTV">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eF5-IA-vTV" id="BxR-xL-aUe">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2551521360874176" green="0.27285820245742798" blue="0.31181350350379944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5ua-v3-Rd8" firstAttribute="top" secondItem="Rhb-IQ-nH5" secondAttribute="bottom" constant="2" id="1Rv-e2-a4C"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="bottom" secondItem="Da7-A1-40c" secondAttribute="bottom" constant="16" id="1gP-bp-Yf2"/>
+                            <constraint firstItem="JBU-dR-Zw2" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="2BU-71-27C"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="Rhb-IQ-nH5" secondAttribute="trailing" constant="16" id="2Qa-za-bJl"/>
+                            <constraint firstItem="FqZ-jz-NPc" firstAttribute="top" secondItem="5ua-v3-Rd8" secondAttribute="bottom" constant="16" id="7yk-kN-S66"/>
+                            <constraint firstItem="Rhb-IQ-nH5" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="9oN-ci-MxZ"/>
+                            <constraint firstItem="Da7-A1-40c" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="Bae-m6-VDv"/>
+                            <constraint firstItem="3WD-S3-Db8" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" id="C3x-Xh-XeU"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="FqZ-jz-NPc" secondAttribute="trailing" constant="16" id="CUE-6m-1p4"/>
+                            <constraint firstItem="FqZ-jz-NPc" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="CvV-ee-3eN"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="Pxx-M5-3y5" secondAttribute="trailing" constant="16" id="Cyk-Pp-pRN"/>
+                            <constraint firstItem="xj7-Yp-ffW" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="JPr-4r-ATF"/>
+                            <constraint firstItem="3WD-S3-Db8" firstAttribute="top" secondItem="mXC-uT-Kpm" secondAttribute="top" id="NKa-tV-cbH"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="JBU-dR-Zw2" secondAttribute="trailing" constant="16" id="OSc-qR-pwQ"/>
+                            <constraint firstItem="Da7-A1-40c" firstAttribute="top" secondItem="xj7-Yp-ffW" secondAttribute="bottom" constant="16" id="PSj-4l-gjq"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="Da7-A1-40c" secondAttribute="trailing" constant="16" id="R5M-Rq-NBR"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="5ua-v3-Rd8" secondAttribute="trailing" constant="16" id="b0C-33-EoL"/>
+                            <constraint firstItem="JBU-dR-Zw2" firstAttribute="top" secondItem="Pxx-M5-3y5" secondAttribute="bottom" constant="2" id="cu4-OZ-X42"/>
+                            <constraint firstItem="3WD-S3-Db8" firstAttribute="trailing" secondItem="ZYe-IZ-u7V" secondAttribute="trailing" id="gT9-DD-uDz"/>
+                            <constraint firstItem="xj7-Yp-ffW" firstAttribute="top" secondItem="FqZ-jz-NPc" secondAttribute="bottom" constant="2" id="gqx-WN-zOM"/>
+                            <constraint firstItem="Pxx-M5-3y5" firstAttribute="top" secondItem="3WD-S3-Db8" secondAttribute="bottom" constant="8" id="hYf-uO-OmE"/>
+                            <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="xj7-Yp-ffW" secondAttribute="trailing" constant="16" id="jcj-Y0-Xfi"/>
+                            <constraint firstItem="Pxx-M5-3y5" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="lYK-WU-O7c"/>
+                            <constraint firstItem="Rhb-IQ-nH5" firstAttribute="top" secondItem="JBU-dR-Zw2" secondAttribute="bottom" constant="16" id="uho-sd-ECP"/>
+                            <constraint firstItem="5ua-v3-Rd8" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="yyu-Q8-3d2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZYe-IZ-u7V"/>
+                    </view>
+                    <connections>
+                        <outlet property="addGroupMemberTextField" destination="xj7-Yp-ffW" id="2qQ-LV-gDp"/>
+                        <outlet property="doneBtn" destination="9hq-wF-GY6" id="hlH-Xb-D07"/>
+                        <outlet property="groupDescriptionTextField" destination="5ua-v3-Rd8" id="A8b-Fe-lex"/>
+                        <outlet property="groupMembersLabel" destination="FqZ-jz-NPc" id="DLv-gT-hwd"/>
+                        <outlet property="groupNameTextField" destination="JBU-dR-Zw2" id="1P7-5c-JNx"/>
+                        <outlet property="searchedUsersTableView" destination="Da7-A1-40c" id="x69-pa-iYO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xfq-QF-Pe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448.8" y="728.18590704647681"/>
         </scene>
         <!--Me-->
         <scene sceneID="ghJ-xd-PQ2">
