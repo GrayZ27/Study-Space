@@ -53,6 +53,7 @@ class PostMessageViewController: UIViewController {
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 DataServices.instance.uploadPostToFirebase(withMessage: self.messageWillPostTextView.text, andUID: uid, onTime: currentTime, withGroupKey: nil, whenCompleted: { (success) in
                     if success {
+                        self.view.endEditing(true)
                         self.dismiss(animated: true, completion: nil)
                         self.sendMessageBtn.isEnabled = true
                         self.sendingMessageIndicator.isHidden = true

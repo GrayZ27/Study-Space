@@ -17,10 +17,10 @@ class UsersMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var userMessageLabel: UILabel!
     
     func configureCell(forMessageBody message: String, withProfileImage image: String, andProfileName name: String, atCurrentTime time: String){
-        userMessageLabel.text = message
-        userProfileNameLabel.text = name
-        currentTimeLabel.text = "Post at \(time)"
-        userProfileImage.image = UIImage(named: image)
+            self.userMessageLabel.text = message
+            self.userProfileNameLabel.text = name
+            self.currentTimeLabel.text = "Post at \(time)"
+            self.userProfileImage.image = UIImage(named: image)
     }
     
 }

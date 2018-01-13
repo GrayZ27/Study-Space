@@ -53,29 +53,34 @@ class DataServices {
         
     }
     
-    //func to get board message from Firebase
-    func getAllBoardMessages(whenCompleted complete: @escaping (_ message: [MessageData]) -> ()) {
+    //func to get board message and User emails from Firebase
+    func getAllBoardMessagesAndUserEmails(whenCompleted complete: @escaping (_ message: [MessageData], _ userEmail: [String]) -> ()) {
         var messageDataArray = [MessageData]()
+        var userEmailArray = [String]()
         
         REF_BOARD.observeSingleEvent(of: .value) { (boardMessageDataSnapShot) in
-            guard let boardMessageData = boardMessageDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
-            for message in boardMessageData {
-                let messageBody = message.childSnapshot(forPath: "content").value as! String
-                let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                let currentTime = message.childSnapshot(forPath: "currentTime").value as! String
-                let message = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: currentTime)
-                messageDataArray.append(message)
-            }
-            complete(messageDataArray)
+            self.REF_USERS.observeSingleEvent(of: .value, with: { (userDataSnapShot) in
+                guard let boardMessageData = boardMessageDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+                guard let userData = userDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+                for message in boardMessageData {
+                    for user in userData {
+                        if message.childSnapshot(forPath: "senderId").value as! String == user.key {
+                            let messageBody = message.childSnapshot(forPath: "content").value as! String
+                            let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                            let currentTime = message.childSnapshot(forPath: "currentTime").value as! String
+                            let userEmail = user.childSnapshot(forPath: "email").value as! String
+                            let message = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: currentTime)
+                            messageDataArray.append(message)
+                            userEmailArray.append(userEmail)
+                        }
+                    }
+                }
+                complete(messageDataArray, userEmailArray)
+            })
         }
-        
     }
-    
-    
-    
+
 }
-
-
 
 
 
