@@ -455,12 +455,15 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxx-M5-3y5">
                                 <rect key="frame" x="16" y="68" width="343" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Vck-oK-myM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
                                 <color key="textColor" red="0.020845869556069374" green="0.65442889928817749" blue="0.76019543409347534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhb-IQ-nH5">
-                                <rect key="frame" x="16" y="148" width="343" height="22"/>
+                                <rect key="frame" x="16" y="140" width="343" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="Zgg-hd-CfI"/>
                                 </constraints>
@@ -469,7 +472,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add Group Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqZ-jz-NPc">
-                                <rect key="frame" x="16" y="228" width="343" height="22"/>
+                                <rect key="frame" x="16" y="220" width="343" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="3DY-ti-nnr"/>
                                 </constraints>
@@ -488,7 +491,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="group description(optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-v3-Rd8" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
-                                <rect key="frame" x="16" y="172" width="343" height="40"/>
+                                <rect key="frame" x="16" y="164" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.167704612" green="0.17722064260000001" blue="0.21450608970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QCx-el-fRj"/>
@@ -497,18 +500,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="add users to your group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xj7-Yp-ffW" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
-                                <rect key="frame" x="16" y="252" width="343" height="70"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="search users to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xj7-Yp-ffW" customClass="CustomUITextField" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="244" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.167704612" green="0.17722064260000001" blue="0.21450608970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="4qn-Uo-UFK"/>
+                                    <constraint firstAttribute="height" constant="40" id="4qn-Uo-UFK"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-A1-40c">
-                                <rect key="frame" x="16" y="338" width="343" height="313"/>
+                                <rect key="frame" x="16" y="300" width="343" height="351"/>
                                 <color key="backgroundColor" red="0.25515213609999998" green="0.27285820249999998" blue="0.31181350349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="displaySearchedUsersCell" rowHeight="50" id="eF5-IA-vTV" customClass="addGroupMembersTableViewCell" customModule="Study_Space" customModuleProvider="target">
@@ -558,6 +561,53 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olv-Q8-SQF" customClass="ShadowUIView" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="68" width="343" height="170"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0z5-rZ-6hJ">
+                                        <rect key="frame" x="8" y="8" width="12" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="Cgy-CF-h4Y"/>
+                                            <constraint firstAttribute="width" constant="12" id="XOY-sq-bbU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="16"/>
+                                        <state key="normal" image="close">
+                                            <color key="titleColor" red="0.020845869560000001" green="0.65442889930000003" blue="0.76019543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hideSelectedGroupMembersViewBtnPressed:" destination="jWz-6f-zh0" eventType="touchUpInside" id="GUE-lg-y8P"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Bny-NX-rTc">
+                                        <rect key="frame" x="8" y="28" width="327" height="134"/>
+                                        <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncN-FZ-hre">
+                                        <rect key="frame" x="99" y="8" width="144" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="khi-bB-Ua5"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="uhF-IH-2IN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="16"/>
+                                        <color key="textColor" red="0.020845869560000001" green="0.65442889930000003" blue="0.76019543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16770461201667786" green="0.17722064256668091" blue="0.21450608968734741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0z5-rZ-6hJ" firstAttribute="top" secondItem="olv-Q8-SQF" secondAttribute="top" constant="8" id="7q4-IN-cjf"/>
+                                    <constraint firstItem="ncN-FZ-hre" firstAttribute="top" secondItem="olv-Q8-SQF" secondAttribute="top" constant="8" id="96a-fU-WCG"/>
+                                    <constraint firstItem="ncN-FZ-hre" firstAttribute="centerX" secondItem="olv-Q8-SQF" secondAttribute="centerX" id="CmR-eV-gQC"/>
+                                    <constraint firstAttribute="height" constant="170" id="QZW-ff-XFz"/>
+                                    <constraint firstItem="0z5-rZ-6hJ" firstAttribute="leading" secondItem="olv-Q8-SQF" secondAttribute="leading" constant="8" id="ahz-lG-YVH"/>
+                                    <constraint firstItem="Bny-NX-rTc" firstAttribute="top" secondItem="0z5-rZ-6hJ" secondAttribute="bottom" constant="8" id="b4T-Dj-uMX"/>
+                                    <constraint firstItem="Bny-NX-rTc" firstAttribute="leading" secondItem="olv-Q8-SQF" secondAttribute="leading" constant="8" id="jkK-zi-W1m"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bny-NX-rTc" secondAttribute="trailing" constant="8" id="rSm-sT-cOt"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bny-NX-rTc" secondAttribute="bottom" constant="8" id="vF9-WX-11O"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2551521360874176" green="0.27285820245742798" blue="0.31181350350379944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -567,6 +617,7 @@
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="Rhb-IQ-nH5" secondAttribute="trailing" constant="16" id="2Qa-za-bJl"/>
                             <constraint firstItem="FqZ-jz-NPc" firstAttribute="top" secondItem="5ua-v3-Rd8" secondAttribute="bottom" constant="16" id="7yk-kN-S66"/>
                             <constraint firstItem="Rhb-IQ-nH5" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="9oN-ci-MxZ"/>
+                            <constraint firstItem="olv-Q8-SQF" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="A32-AR-Lhc"/>
                             <constraint firstItem="Da7-A1-40c" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="Bae-m6-VDv"/>
                             <constraint firstItem="3WD-S3-Db8" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" id="C3x-Xh-XeU"/>
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="FqZ-jz-NPc" secondAttribute="trailing" constant="16" id="CUE-6m-1p4"/>
@@ -577,6 +628,8 @@
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="JBU-dR-Zw2" secondAttribute="trailing" constant="16" id="OSc-qR-pwQ"/>
                             <constraint firstItem="Da7-A1-40c" firstAttribute="top" secondItem="xj7-Yp-ffW" secondAttribute="bottom" constant="16" id="PSj-4l-gjq"/>
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="Da7-A1-40c" secondAttribute="trailing" constant="16" id="R5M-Rq-NBR"/>
+                            <constraint firstItem="olv-Q8-SQF" firstAttribute="trailing" secondItem="ZYe-IZ-u7V" secondAttribute="trailing" constant="-16" id="Xgu-6y-9qJ"/>
+                            <constraint firstItem="olv-Q8-SQF" firstAttribute="top" secondItem="3WD-S3-Db8" secondAttribute="bottom" constant="8" id="YTc-2F-uti"/>
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="5ua-v3-Rd8" secondAttribute="trailing" constant="16" id="b0C-33-EoL"/>
                             <constraint firstItem="JBU-dR-Zw2" firstAttribute="top" secondItem="Pxx-M5-3y5" secondAttribute="bottom" constant="2" id="cu4-OZ-X42"/>
                             <constraint firstItem="3WD-S3-Db8" firstAttribute="trailing" secondItem="ZYe-IZ-u7V" secondAttribute="trailing" id="gT9-DD-uDz"/>
@@ -584,16 +637,17 @@
                             <constraint firstItem="Pxx-M5-3y5" firstAttribute="top" secondItem="3WD-S3-Db8" secondAttribute="bottom" constant="8" id="hYf-uO-OmE"/>
                             <constraint firstItem="ZYe-IZ-u7V" firstAttribute="trailing" secondItem="xj7-Yp-ffW" secondAttribute="trailing" constant="16" id="jcj-Y0-Xfi"/>
                             <constraint firstItem="Pxx-M5-3y5" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="lYK-WU-O7c"/>
-                            <constraint firstItem="Rhb-IQ-nH5" firstAttribute="top" secondItem="JBU-dR-Zw2" secondAttribute="bottom" constant="16" id="uho-sd-ECP"/>
+                            <constraint firstItem="Rhb-IQ-nH5" firstAttribute="top" secondItem="JBU-dR-Zw2" secondAttribute="bottom" constant="8" id="uho-sd-ECP"/>
                             <constraint firstItem="5ua-v3-Rd8" firstAttribute="leading" secondItem="ZYe-IZ-u7V" secondAttribute="leading" constant="16" id="yyu-Q8-3d2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZYe-IZ-u7V"/>
                     </view>
                     <connections>
                         <outlet property="addGroupMemberTextField" destination="xj7-Yp-ffW" id="2qQ-LV-gDp"/>
+                        <outlet property="displayGroupMemeberView" destination="olv-Q8-SQF" id="5uA-h8-Uoo"/>
+                        <outlet property="displaySelectedGroupMembersLabel" destination="Bny-NX-rTc" id="ace-H5-iEj"/>
                         <outlet property="doneBtn" destination="9hq-wF-GY6" id="hlH-Xb-D07"/>
                         <outlet property="groupDescriptionTextField" destination="5ua-v3-Rd8" id="A8b-Fe-lex"/>
-                        <outlet property="groupMembersLabel" destination="FqZ-jz-NPc" id="DLv-gT-hwd"/>
                         <outlet property="groupNameTextField" destination="JBU-dR-Zw2" id="1P7-5c-JNx"/>
                         <outlet property="searchedUsersTableView" destination="Da7-A1-40c" id="x69-pa-iYO"/>
                     </connections>

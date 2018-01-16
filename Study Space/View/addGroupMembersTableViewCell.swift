@@ -24,7 +24,11 @@ class addGroupMembersTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            print("I was selected")
+            if userSelectedMark.isHidden {
+                userSelectedMark.isHidden = false
+            }else {
+                userSelectedMark.isHidden = true
+            }
         }
     }
     
