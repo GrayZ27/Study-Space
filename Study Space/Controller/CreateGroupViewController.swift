@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupViewController: UIViewController, UITextFieldDelegate {
 
@@ -64,7 +65,12 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
+    private func toShowAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     //UIActions
     @IBAction func closeCreateGroupBtnPressed(_ sender: UIButton) {
@@ -73,6 +79,30 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneCreateGroupBtnPressed(_ sender: UIButton) {
+        
+        if groupNameTextField.text != nil && groupNameTextField.text != "" {
+            let title = groupNameTextField.text!
+            var description = ""
+            if groupDescriptionTextField.text != "" && groupDescriptionTextField.text != nil{
+                description = groupDescriptionTextField.text!
+            }else {
+                description = "This group has no description"
+            }
+            DataServices.instance.getUserIds(forUserEmailsArray: selectedEmailArray, whenCompleted: { (userIdsArray) in
+                var userIds = userIdsArray
+                guard let myIds = Auth.auth().currentUser?.uid else { return }
+                userIds.append(myIds)
+                DataServices.instance.createDatabaseGroup(withTitle: title, andDescription: description, forUserIds: userIds, whenCompleted: { (success) in
+                    if success {
+                        self.dismiss(animated: true, completion: nil)
+                    }else {
+                        self.toShowAlert(message: "Can't create group now, please try again later")
+                    }
+                })
+            })
+        }else {
+            toShowAlert(message: "Your group title has not set")
+        }
         
     }
     

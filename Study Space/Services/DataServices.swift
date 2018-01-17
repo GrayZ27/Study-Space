@@ -53,6 +53,12 @@ class DataServices {
         
     }
     
+    //func to create groups in Firebase
+    func createDatabaseGroup(withTitle title: String, andDescription description: String, forUserIds ids: [String], whenCompleted complete: @escaping (_ status: Bool) -> ()) {
+        REF_GROUPS.childByAutoId().updateChildValues(["title" : title, "description" : description, "members" : ids])
+        complete(true)
+    }
+    
     //func to get board message and User emails from Firebase
     func getAllBoardMessagesAndUserEmails(whenCompleted complete: @escaping (_ message: [MessageData], _ userEmail: [String]) -> ()) {
         var messageDataArray = [MessageData]()
@@ -94,7 +100,42 @@ class DataServices {
             complete(emailArray)
         }
     }
-
+    
+    func getUserIds(forUserEmailsArray emailArray: [String], whenCompleted complete: @escaping (_ userIdsArray: [String]) -> ()) {
+        var userIdsArray = [String]()
+        
+        REF_USERS.observeSingleEvent(of: .value) { (userDataSnapShot) in
+            guard let userData = userDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userData {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                if emailArray.contains(email) {
+                    userIdsArray.append(user.key)
+                }
+            }
+            complete(userIdsArray)
+        }
+    }
+    
+    func getGroups(whenCompleted complete: @escaping (_ groupsArray: [GroupData]) -> ()) {
+        var groupsArray = [GroupData]()
+        
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupDataSnapShot) in
+            guard let groupData = groupDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            for group in groupData {
+                let groupMembers = group.childSnapshot(forPath: "members").value as! [String]
+                guard let me = Auth.auth().currentUser?.uid else { return }
+                if groupMembers.contains(me){
+                    let groupName = group.childSnapshot(forPath: "title").value as! String
+                    let groupDescription = group.childSnapshot(forPath: "description").value as! String
+                    let groupId = group.key
+                    let groupMemberCount = groupMembers.count
+                    let groupData = GroupData.init(forGroupName: groupName, andDescription: groupDescription, withGroupId: groupId, andGroupMembers: groupMembers, withMemberCount: groupMemberCount)
+                    groupsArray.append(groupData)
+                }
+            }
+            complete(groupsArray)
+        }
+    }
 }
 
 

@@ -26,6 +26,8 @@
 		066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C42002CF4F00DC20E0 /* AuthServices.swift */; };
 		06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */; };
 		06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */; };
+		06E33BB7200FD95D007E4B19 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E33BB6200FD95D007E4B19 /* GroupTableViewCell.swift */; };
+		06E33BB9200FE79C007E4B19 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E33BB8200FE79C007E4B19 /* GroupData.swift */; };
 		06F903E4200AAB6E00FECBCB /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */; };
 		06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */; };
 		06FDB4652009376000491CD4 /* YourMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */; };
@@ -55,6 +57,8 @@
 		066FC3C42002CF4F00DC20E0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		06E33BB6200FD95D007E4B19 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		06E33BB8200FE79C007E4B19 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersMessageTableViewCell.swift; sourceTree = "<group>"; };
 		06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourMessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				06FDB4622009374000491CD4 /* UsersMessageTableViewCell.swift */,
 				06FDB4642009376000491CD4 /* YourMessageTableViewCell.swift */,
 				064B5924200E7410009C6AAD /* addGroupMembersTableViewCell.swift */,
+				06E33BB6200FD95D007E4B19 /* GroupTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				06FDB46820093D5800491CD4 /* MessageData.swift */,
+				06E33BB8200FE79C007E4B19 /* GroupData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */,
 				064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */,
 				064B5925200E7410009C6AAD /* addGroupMembersTableViewCell.swift in Sources */,
+				06E33BB9200FE79C007E4B19 /* GroupData.swift in Sources */,
 				06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */,
 				0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */,
 				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
@@ -337,6 +344,7 @@
 				06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */,
 				0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,
+				06E33BB7200FD95D007E4B19 /* GroupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

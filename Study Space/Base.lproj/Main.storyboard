@@ -372,17 +372,63 @@
                                     <constraint firstItem="1Yb-dJ-OQz" firstAttribute="centerY" secondItem="WJc-bs-s1N" secondAttribute="centerY" id="s6C-MK-sjg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yja-6Q-bLL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yja-6Q-bLL">
                                 <rect key="frame" x="0.0" y="60" width="375" height="558"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.3203791976" green="0.34159490469999998" blue="0.38723170759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="80" id="ncl-Oq-snj">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="90" id="ncl-Oq-snj" customClass="GroupTableViewCell" customModule="Study_Space" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ncl-Oq-snj" id="1GN-LK-PN9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYQ-5I-7Tx">
+                                                    <rect key="frame" x="23" y="19" width="329" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="f39-LF-7eI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="18"/>
+                                                    <color key="textColor" red="0.020845869560000001" green="0.65442889930000003" blue="0.76019543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-6y-3dO">
+                                                    <rect key="frame" x="31" y="41" width="321" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="259-oT-aW0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twM-af-0zZ">
+                                                    <rect key="frame" x="31" y="61" width="321" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="jAH-u4-4TA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tgx-6y-3dO" firstAttribute="top" secondItem="QYQ-5I-7Tx" secondAttribute="bottom" constant="2" id="0Ts-SA-yDs"/>
+                                                <constraint firstItem="twM-af-0zZ" firstAttribute="leading" secondItem="Tgx-6y-3dO" secondAttribute="leading" id="9CM-B1-Buq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tgx-6y-3dO" secondAttribute="trailing" constant="8" id="B1b-rZ-9mj"/>
+                                                <constraint firstItem="Tgx-6y-3dO" firstAttribute="leading" secondItem="1GN-LK-PN9" secondAttribute="leadingMargin" constant="16" id="GF4-Dt-WQJ"/>
+                                                <constraint firstItem="QYQ-5I-7Tx" firstAttribute="leading" secondItem="1GN-LK-PN9" secondAttribute="leadingMargin" constant="8" id="K91-gY-OV0"/>
+                                                <constraint firstItem="twM-af-0zZ" firstAttribute="top" secondItem="Tgx-6y-3dO" secondAttribute="bottom" constant="2" id="Yd4-qw-Fsa"/>
+                                                <constraint firstItem="twM-af-0zZ" firstAttribute="trailing" secondItem="Tgx-6y-3dO" secondAttribute="trailing" id="cNg-L7-vK7"/>
+                                                <constraint firstItem="QYQ-5I-7Tx" firstAttribute="top" secondItem="1GN-LK-PN9" secondAttribute="topMargin" constant="8" id="q6z-MM-12x"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QYQ-5I-7Tx" secondAttribute="trailing" constant="8" id="sua-nL-U06"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="groupDescriptionLabel" destination="Tgx-6y-3dO" id="FZg-uH-4ZI"/>
+                                            <outlet property="groupMemberCounts" destination="twM-af-0zZ" id="9J1-av-Epx"/>
+                                            <outlet property="groupNameLabel" destination="QYQ-5I-7Tx" id="PuC-bp-S5C"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -400,6 +446,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="groups-tabIcon" selectedImage="groups-tabIcon" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="groupTableView" destination="yja-6Q-bLL" id="a6J-ol-iBB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
