@@ -53,5 +53,14 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureGroupCell(forName: group.groupName, andDescription: group.groupDescription, withMemberCount: group.memberCount)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let groupChatVC = storyboard?.instantiateViewController(withIdentifier: "GroupChatVC") as? GroupChatViewController else { return }
+        groupChatVC.initGroup(forGroup: groupArray[indexPath.row])
+        present(groupChatVC, animated: true, completion: nil)
+        
+    }
+    
 }
 
