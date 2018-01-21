@@ -45,7 +45,8 @@ class DataServices {
     func uploadPostToFirebase(withMessage message: String, andUID uid: String, onTime time: String, withGroupKey groupKey: String?, whenCompleted complete: @escaping (_ status: Bool) -> ()) {
         
         if groupKey != nil {
-            //Will post this message to group
+            REF_GROUPS.child(groupKey!).child("message").childByAutoId().updateChildValues(["content": message, "senderId": uid, "currentTime": time])
+            complete(true)
         }else {
             REF_BOARD.childByAutoId().updateChildValues(["content": message, "senderId": uid, "currentTime": time])
             complete(true)
@@ -134,6 +135,32 @@ class DataServices {
                 }
             }
             complete(groupsArray)
+        }
+    }
+    
+    func getGroupMessageAndUserEmail(withGroup group: GroupData, whenCompleted complete: @escaping (_ messageArray: [MessageData], _ emailArray: [String]) -> ()) {
+        var messageArray = [MessageData]()
+        var emailArray = [String]()
+        
+        REF_GROUPS.child(group.groupId).child("message").observeSingleEvent(of: .value) { (groupMessageDataSnapShot) in
+            self.REF_USERS.observeSingleEvent(of: .value, with: { (userDataSnapShot) in
+                guard let messageData = groupMessageDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+                guard let userData = userDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+                for message in messageData {
+                    for user in userData {
+                        let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                        if senderId == user.key {
+                            let messageBody = message.childSnapshot(forPath: "content").value as! String
+                            let currentTime = message.childSnapshot(forPath: "currentTime").value as! String
+                            let userEmail = user.childSnapshot(forPath: "email").value as! String
+                            let message = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: currentTime)
+                            messageArray.append(message)
+                            emailArray.append(userEmail)
+                        }
+                    }
+                }
+                complete(messageArray,emailArray)
+            })
         }
     }
 }

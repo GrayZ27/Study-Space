@@ -15,8 +15,8 @@ class GroupYourMessagesTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var yourMessageLabel: UILabel!
     
-    func configureGroupYourMessageCell(forYourProfileImage image: UIImage, withYourMessage message: String, atCurrentTime time: String) {
-        yourProfileImage.image = image
+    func configureGroupYourMessageCell(forYourProfileImage image: String, withYourMessage message: String, atCurrentTime time: String) {
+        yourProfileImage.image = UIImage(named: image)
         yourMessageLabel.text = message
         currentTimeLabel.text = time
     }

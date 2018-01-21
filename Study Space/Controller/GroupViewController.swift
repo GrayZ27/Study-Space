@@ -58,7 +58,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let groupChatVC = storyboard?.instantiateViewController(withIdentifier: "GroupChatVC") as? GroupChatViewController else { return }
         groupChatVC.initGroup(forGroup: groupArray[indexPath.row])
-        present(groupChatVC, animated: true, completion: nil)
+        presentDetail(groupChatVC)
         
     }
     

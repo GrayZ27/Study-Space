@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06165BED20152AFA007651A6 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06165BEC20152AF9007651A6 /* UIViewControllerExt.swift */; };
 		0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D2102007F3370092CCFE /* PostMessageViewController.swift */; };
 		0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */; };
 		0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71A2004011600B7DADF /* CustomUIButton.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06165BEC20152AF9007651A6 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		0617D2102007F3370092CCFE /* PostMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
 		0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtForKeyboard.swift; sourceTree = "<group>"; };
 		0625F71A2004011600B7DADF /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */,
+				06165BEC20152AF9007651A6 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				064C8E901FFEA96700C8C361 /* GroupViewController.swift in Sources */,
 				066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */,
 				066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */,
+				06165BED20152AFA007651A6 /* UIViewControllerExt.swift in Sources */,
 				0625F71D2004056E00B7DADF /* SignUpViewController.swift in Sources */,
 				06BF2E5E2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift in Sources */,
 				064F61242005757500D11C14 /* MeViewController.swift in Sources */,
