@@ -7,11 +7,45 @@
 //
 
 import UIKit
+import Firebase
 
 class MeViewController: UIViewController {
 
+    //IBOutlets
+    @IBOutlet weak var userProfileImage: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        handleProfileImage()
+        updateUserProfileImage()
+    }
+    
+    func updateUserProfileImage() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        DataServices.instance.getUserProfileImageLink(withUID: uid) { (imageLink) in
+            if imageLink != "" {
+                if let imageURL = URL(string: imageLink) {
+                    URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                        if let imageData = data {
+                            DispatchQueue.main.async {
+                                self.userProfileImage.image = UIImage(data: imageData)
+                            }
+                        }
+                    }).resume()
+                }
+            }
+        }
     }
     
     //IBOutlets
@@ -39,5 +73,58 @@ class MeViewController: UIViewController {
         present(logoutAlert, animated: true, completion: nil)
         
     }
+    
+    //func to handle selected profileImage
+    func handleProfileImage() {
+        let tapToHandleProfileImage = UITapGestureRecognizer(target: self, action: #selector(MeViewController.handleToSelectProfileImage))
+        userProfileImage.addGestureRecognizer(tapToHandleProfileImage)
+        userProfileImage.isUserInteractionEnabled = true
+    }
+    
+    @objc func handleToSelectProfileImage() {
+        present(imagePicker, animated: true, completion: nil)
+    }
 
+}
+
+extension MeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var selectedImage: UIImage?
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImage = editedImage
+        }else if let originImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImage = originImage
+        }else {
+            selectedImage = UIImage(named: "defaultProfileImage")
+        }
+        
+        if selectedImage != nil {
+            userProfileImage.image = selectedImage
+        }
+        
+        if let image = userProfileImage.image {
+            if let uploadedImageData = UIImagePNGRepresentation(image) {
+                DataServices.instance.uploadImageToFirebaseStorage(withImageData: uploadedImageData, whenCompleted: { (success, metaData, error) in
+                    if success {
+                        if let downloadUrl = metaData?.downloadURL()?.absoluteString {
+                            guard let uid = Auth.auth().currentUser?.uid else { return }
+                            let userProfileImageInfo = ["userProfileImageURL": downloadUrl]
+                            DataServices.instance.updateImageLinkToFirebaseUser(withUID: uid, andUserInfo: userProfileImageInfo)
+                            self.updateUserProfileImage()
+                        }
+                    }else {
+                        print(error?.localizedDescription as Any)
+                    }
+                })
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

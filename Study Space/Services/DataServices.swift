@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 let DATABASE_BASE = Database.database().reference()
+let DATABASE_STORAGE = Storage.storage().reference()
 
 class DataServices {
     
@@ -19,6 +20,8 @@ class DataServices {
     private var _REF_USERS = DATABASE_BASE.child("users")
     private var _REF_GROUPS = DATABASE_BASE.child("groups")
     private var _REF_BOARD = DATABASE_BASE.child("board")
+    
+    private var _REF_STORAGE_IMAGE = DATABASE_STORAGE.child("Images")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -34,6 +37,36 @@ class DataServices {
     
     var REF_BOARD: DatabaseReference {
         return _REF_BOARD
+    }
+    
+    var REF_STORAGE_IMAGE: StorageReference {
+        return _REF_STORAGE_IMAGE
+    }
+    
+    //func to update userProfileImage to FIrebase Storage
+    func uploadImageToFirebaseStorage(withImageData data: Data, whenCompleted complete: @escaping (_ success: Bool,  _ megaData: StorageMetadata?, _ error: Error?) -> ()) {
+        guard let userEmail = Auth.auth().currentUser?.email else { return }
+        let imageName = "\(userEmail)'s profileImage"
+        REF_STORAGE_IMAGE.child("\(imageName).png").putData(data, metadata: nil) { (metaData, error) in
+            if let error = error {
+                complete(false, nil, error)
+            }
+            complete(true, metaData, nil)
+        }
+    }
+    
+    //func to update userProfileImage Link to Firebase
+    func updateImageLinkToFirebaseUser(withUID uid: String, andUserInfo userInfo: Dictionary<String, Any>) {
+        REF_USERS.child(uid).updateChildValues(userInfo)
+    }
+    
+    //func to get userProfileImageLink from Firebase
+    func getUserProfileImageLink(withUID uid: String, whenCompleted complete: @escaping (_ imageLink: String) -> ()){
+        REF_USERS.child(uid).observeSingleEvent(of: .value) { (userDataSnapShot) in
+            guard let userData = userDataSnapShot.value as? NSDictionary else { return }
+            guard let imageLink = userData["userProfileImageURL"] as? String else { return }
+            complete(imageLink)
+        }
     }
     
     //func to create users in Firebase

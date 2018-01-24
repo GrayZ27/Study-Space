@@ -950,9 +950,19 @@
                                     <constraint firstItem="Y1G-GY-UAE" firstAttribute="centerY" secondItem="lb0-LA-sd1" secondAttribute="centerY" id="sH5-Ng-q3Y"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="tAd-XF-HMo" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
+                                <rect key="frame" x="16" y="76" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="8D6-d3-yID"/>
+                                    <constraint firstAttribute="width" constant="90" id="wEy-xy-wYi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.2551521360874176" green="0.27285820245742798" blue="0.31181350350379944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tAd-XF-HMo" firstAttribute="leading" secondItem="zTz-eN-f5o" secondAttribute="leading" constant="16" id="854-GC-M0k"/>
+                            <constraint firstItem="tAd-XF-HMo" firstAttribute="top" secondItem="Nbm-h3-fQi" secondAttribute="bottom" constant="16" id="M6L-ap-Li6"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="leading" secondItem="zTz-eN-f5o" secondAttribute="leading" id="Yqx-eX-nQP"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="trailing" secondItem="zTz-eN-f5o" secondAttribute="trailing" id="gyI-xn-aCo"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="top" secondItem="oUF-dT-wtA" secondAttribute="top" id="kdl-ce-P1N"/>
@@ -960,10 +970,13 @@
                         <viewLayoutGuide key="safeArea" id="zTz-eN-f5o"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="me-tabIcon" selectedImage="me-tabIcon" id="4cl-q9-aLw"/>
+                    <connections>
+                        <outlet property="userProfileImage" destination="tAd-XF-HMo" id="kGy-P0-aHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eE5-My-bQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1585" y="0.0"/>
+            <point key="canvasLocation" x="1584.8" y="-0.44977511244377816"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="mrf-FL-vfV">
