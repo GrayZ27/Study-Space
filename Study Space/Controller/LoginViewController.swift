@@ -40,13 +40,11 @@ class LoginViewController: UIViewController {
     }
     
     private func viewWillSetup() {
-        
         bgImageHeightLayoutConstraint.constant = view.frame.size.height / 2 + 20
         loginViewWidthLayoutConstraint.constant = view.frame.size.width - 32
         loginViewHeightLayoutConstraint.constant = view.frame.size.height * 0.57
         loginTextFieldStackViewHeightLayoutConstraint.constant = loginViewHeightLayoutConstraint.constant * 0.4
         loginOptionsStackViewHeightLayoutConstraint.constant = loginViewHeightLayoutConstraint.constant * 0.12
-        
     }
     
     @objc private func dismissKeyboard() {
@@ -105,16 +103,13 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField.returnKeyType == .default {
             textField.resignFirstResponder()
         }
-        
         if textField.returnKeyType == .done {
             textField.resignFirstResponder()
             loginUser()
         }
-        
         return true
     }
     

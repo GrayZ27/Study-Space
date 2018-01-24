@@ -15,8 +15,12 @@ class addGroupMembersTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userSelectedMark: UIImageView!
     
-    func configureCell(profileImage image: UIImage, userName name: String, isSelected: Bool) {
-        usersImage.image = image
+    func configureCell(profileImage imageString: String, userName name: String, isSelected: Bool) {
+        DataServices.instance.getUserProfileImage(withImageString: imageString) { (userImage) in
+            DispatchQueue.main.async {
+                self.usersImage.image = userImage
+            }
+        }
         userNameLabel.text = name
         userSelectedMark.isHidden = !isSelected
     }

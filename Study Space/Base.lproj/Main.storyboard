@@ -78,7 +78,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="DWc-Av-ADq">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="DWc-Av-ADq" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="WaI-kx-t7q"/>
@@ -141,7 +141,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="CFY-oC-Mn8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="CFY-oC-Mn8" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                                     <rect key="frame" x="319" y="8" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="RU3-5Q-em9"/>
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="750" y="-417"/>
         </scene>
         <!--Post Message View Controller-->
         <scene sceneID="Qhj-EE-8Yv">
@@ -246,7 +246,7 @@
                                     <constraint firstItem="aFz-TX-FLP" firstAttribute="centerY" secondItem="Bwz-8i-PDJ" secondAttribute="centerY" id="w3Y-cM-vQ6"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="UWh-IS-vUT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="UWh-IS-vUT" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                 <rect key="frame" x="16" y="68" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="R2p-aa-26i"/>
@@ -356,7 +356,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="vua-Qx-iHi">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="vua-Qx-iHi" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="8" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="2ZZ-qd-vYO"/>
@@ -419,7 +419,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="axS-5I-mAZ">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="axS-5I-mAZ" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                                             <rect key="frame" x="319" y="8" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="GiF-uc-vwX"/>
@@ -658,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="750" y="448"/>
         </scene>
         <!--Create Group View Controller-->
         <scene sceneID="BPi-gk-S5V">
@@ -776,7 +776,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="0us-uG-gJA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="0us-uG-gJA" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="7.5" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="SN6-S8-Zac"/>
@@ -951,32 +951,45 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="tAd-XF-HMo" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
-                                <rect key="frame" x="16" y="76" width="90" height="90"/>
+                                <rect key="frame" x="142.5" y="76" width="90" height="90"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="8D6-d3-yID"/>
                                     <constraint firstAttribute="width" constant="90" id="wEy-xy-wYi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gray@studyspace.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t68-fY-fNr">
+                                <rect key="frame" x="8" y="174" width="359" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hdJ-tz-6fK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.67450980390000004" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2551521360874176" green="0.27285820245742798" blue="0.31181350350379944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tAd-XF-HMo" firstAttribute="leading" secondItem="zTz-eN-f5o" secondAttribute="leading" constant="16" id="854-GC-M0k"/>
+                            <constraint firstItem="t68-fY-fNr" firstAttribute="top" secondItem="tAd-XF-HMo" secondAttribute="bottom" constant="8" id="5R2-HR-PfY"/>
                             <constraint firstItem="tAd-XF-HMo" firstAttribute="top" secondItem="Nbm-h3-fQi" secondAttribute="bottom" constant="16" id="M6L-ap-Li6"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="leading" secondItem="zTz-eN-f5o" secondAttribute="leading" id="Yqx-eX-nQP"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="trailing" secondItem="zTz-eN-f5o" secondAttribute="trailing" id="gyI-xn-aCo"/>
+                            <constraint firstItem="t68-fY-fNr" firstAttribute="leading" secondItem="zTz-eN-f5o" secondAttribute="leading" constant="8" id="jZe-ck-hAm"/>
                             <constraint firstItem="Nbm-h3-fQi" firstAttribute="top" secondItem="oUF-dT-wtA" secondAttribute="top" id="kdl-ce-P1N"/>
+                            <constraint firstItem="zTz-eN-f5o" firstAttribute="trailing" secondItem="t68-fY-fNr" secondAttribute="trailing" constant="8" id="r9A-Ln-4fd"/>
+                            <constraint firstItem="tAd-XF-HMo" firstAttribute="centerX" secondItem="oUF-dT-wtA" secondAttribute="centerX" id="s40-vb-Vf0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zTz-eN-f5o"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="me-tabIcon" selectedImage="me-tabIcon" id="4cl-q9-aLw"/>
                     <connections>
+                        <outlet property="userNameLabel" destination="t68-fY-fNr" id="gJW-cJ-vMG"/>
                         <outlet property="userProfileImage" destination="tAd-XF-HMo" id="kGy-P0-aHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eE5-My-bQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584.8" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="1449" y="0.0"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="mrf-FL-vfV">

@@ -121,16 +121,13 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField.returnKeyType == .default{
             textField.resignFirstResponder()
         }
-        
         if textField.returnKeyType == .done {
             textField.resignFirstResponder()
             signUpUser()
         }
-        
         return true
     }
     

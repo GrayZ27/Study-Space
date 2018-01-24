@@ -11,18 +11,14 @@ import UIKit
 class ShadowUIView: UIView {
 
     override func awakeFromNib() {
-        
         setupView()
         super.awakeFromNib()
-        
     }
 
     private func setupView() {
-        
         self.layer.shadowOpacity = 0.65
         self.layer.shadowRadius = 6
         self.layer.shadowColor = UIColor.white.cgColor
-        
     }
     
 }

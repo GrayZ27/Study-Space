@@ -11,16 +11,12 @@ import UIKit
 class CustomUIButton: UIButton {
 
     override func awakeFromNib() {
-        
         setupView()
         super.awakeFromNib()
-        
     }
     
     private func setupView() {
-
         self.layer.cornerRadius = 2
-        
     }
     
 }

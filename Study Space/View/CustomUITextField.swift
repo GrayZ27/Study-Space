@@ -13,10 +13,8 @@ class CustomUITextField: UITextField {
     private var paddings = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     
     override func awakeFromNib() {
-        
         setupView()
         super.awakeFromNib()
-        
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -32,13 +30,11 @@ class CustomUITextField: UITextField {
     }
     
     private func setupView() {
-        
         let placeholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 0.9543312014, blue: 0.9730788859, alpha: 0.5)])
         self.attributedPlaceholder = placeholder
         self.layer.shadowOpacity = 0.5
         self.layer.shadowRadius = 2
         self.layer.shadowColor = UIColor.white.cgColor
-        
     }
 
 }

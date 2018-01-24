@@ -12,6 +12,8 @@ import Firebase
 let DATABASE_BASE = Database.database().reference()
 let DATABASE_STORAGE = Storage.storage().reference()
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+
 class DataServices {
     
     static let instance = DataServices()
@@ -93,10 +95,11 @@ class DataServices {
         complete(true)
     }
     
-    //func to get board message and User emails from Firebase
-    func getAllBoardMessagesAndUserEmails(whenCompleted complete: @escaping (_ message: [MessageData], _ userEmail: [String]) -> ()) {
+    //func to get board message and User emails and profileImageLink from Firebase
+    func getAllBoardMessagesAndUserEmails(whenCompleted complete: @escaping (_ message: [MessageData], _ userEmail: [String], _ userProfileImage: [String]) -> ()) {
         var messageDataArray = [MessageData]()
         var userEmailArray = [String]()
+        var userProfileImageArray = [String]()
         
         REF_BOARD.observeSingleEvent(of: .value) { (boardMessageDataSnapShot) in
             self.REF_USERS.observeSingleEvent(of: .value, with: { (userDataSnapShot) in
@@ -109,32 +112,111 @@ class DataServices {
                             let senderId = message.childSnapshot(forPath: "senderId").value as! String
                             let currentTime = message.childSnapshot(forPath: "currentTime").value as! String
                             let userEmail = user.childSnapshot(forPath: "email").value as! String
+                            if let userProfileImageString = user.childSnapshot(forPath: "userProfileImageURL").value as? String {
+                                userProfileImageArray.append(userProfileImageString)
+                            }else {
+                                userProfileImageArray.append("")
+                            }
                             let message = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: currentTime)
                             messageDataArray.append(message)
                             userEmailArray.append(userEmail)
                         }
                     }
                 }
-                complete(messageDataArray, userEmailArray)
+                complete(messageDataArray, userEmailArray, userProfileImageArray)
             })
         }
     }
     
-    func getEmail(searchByText text: String, whenCompleted complete: @escaping (_ emailArray: [String]) -> ()) {
+    // func to get user email and profile image by user search text
+    func getEmailAndUserProfileImageLink(searchByText text: String, whenCompleted complete: @escaping (_ emailArray: [String], _ imageLink: [String]) -> ()) {
         var emailArray = [String]()
-        
+        var imageLinkArray = [String]()
         REF_USERS.observe(.value) { (userDataSnapShot) in
             guard let userData = userDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
             for user in userData {
                 let email = user.childSnapshot(forPath: "email").value as! String
                 if email.contains(text) == true && email != Auth.auth().currentUser?.email {
                     emailArray.append(email)
+                    if let userProfileImageString = user.childSnapshot(forPath: "userProfileImageURL").value as? String {
+                        imageLinkArray.append(userProfileImageString)
+                    }else {
+                        imageLinkArray.append("")
+                    }
                 }
             }
-            complete(emailArray)
+            complete(emailArray, imageLinkArray)
         }
     }
     
+    //func to return user Image
+    func getUserProfileImage(withImageString imageString: String, whenCompleted complete: @escaping (_ image: UIImage) -> ()){
+        if imageString != "" {
+            if let cachedImage = imageCache.object(forKey: imageString as AnyObject) as? UIImage{
+                complete(cachedImage)
+            }else {
+                if let imageURL = URL(string: imageString){
+                    URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
+                        if let err = error {
+                            if let image = UIImage(named: "defaultProfileImage"){
+                                complete(image)
+                            }
+                            print(err.localizedDescription)
+                        }else {
+                            if let imageData = data {
+                                if let downloadedImage = UIImage(data: imageData){
+                                    imageCache.setObject(downloadedImage, forKey: imageString as AnyObject)
+                                    complete(downloadedImage)
+                                }
+                            }
+                        }
+                    }).resume()
+                }
+            }
+        }else {
+            if let image = UIImage(named: "defaultProfileImage"){
+                complete(image)
+            }
+        }
+    }
+
+    //func to get current login user image
+    func getCurrentLoginUserImage(whenCompleted complete: @escaping (_ userImage: UIImage) -> ()) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        DataServices.instance.getUserProfileImageLink(withUID: uid) { (imageLink) in
+            if imageLink != "" {
+                if let cachedImage = imageCache.object(forKey: imageLink as AnyObject) as? UIImage{
+                    complete(cachedImage)
+                }else {
+                    if let imageURL = URL(string: imageLink) {
+                        URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
+                            if let err = error {
+                                if let image = UIImage(named: "defaultProfileImage"){
+                                    complete(image)
+                                }
+                                print(err.localizedDescription)
+                            }else {
+                                if let imageData = data {
+                                    DispatchQueue.main.async {
+                                        if let downloadedImage = UIImage(data: imageData){
+                                            imageCache.setObject(downloadedImage, forKey: imageLink as AnyObject)
+                                            complete(downloadedImage)
+                                        }
+                                    }
+                                }
+                            }
+                        }).resume()
+                    }
+                }
+            }else {
+                if let image = UIImage(named: "defaultProfileImage"){
+                    complete(image)
+                }
+            }
+        }
+    }
+    
+    // get user ids array from user email array
     func getUserIds(forUserEmailsArray emailArray: [String], whenCompleted complete: @escaping (_ userIdsArray: [String]) -> ()) {
         var userIdsArray = [String]()
         
@@ -150,6 +232,7 @@ class DataServices {
         }
     }
     
+    //get all group from group view controller
     func getGroups(whenCompleted complete: @escaping (_ groupsArray: [GroupData]) -> ()) {
         var groupsArray = [GroupData]()
         
@@ -171,9 +254,11 @@ class DataServices {
         }
     }
     
-    func getGroupMessageAndUserEmail(withGroup group: GroupData, whenCompleted complete: @escaping (_ messageArray: [MessageData], _ emailArray: [String]) -> ()) {
+    //func to get groupmessage and userEmail and profileImageLink from Firebase
+    func getGroupMessageAndUserEmail(withGroup group: GroupData, whenCompleted complete: @escaping (_ messageArray: [MessageData], _ emailArray: [String], _ userProfileImage: [String]) -> ()) {
         var messageArray = [MessageData]()
         var emailArray = [String]()
+        var userProfileImageLinkArray = [String]()
         
         REF_GROUPS.child(group.groupId).child("message").observeSingleEvent(of: .value) { (groupMessageDataSnapShot) in
             self.REF_USERS.observeSingleEvent(of: .value, with: { (userDataSnapShot) in
@@ -186,28 +271,19 @@ class DataServices {
                             let messageBody = message.childSnapshot(forPath: "content").value as! String
                             let currentTime = message.childSnapshot(forPath: "currentTime").value as! String
                             let userEmail = user.childSnapshot(forPath: "email").value as! String
+                            if let userProfileImageString = user.childSnapshot(forPath: "userProfileImageURL").value as? String {
+                                userProfileImageLinkArray.append(userProfileImageString)
+                            }else {
+                                userProfileImageLinkArray.append("")
+                            }
                             let message = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: currentTime)
                             messageArray.append(message)
                             emailArray.append(userEmail)
                         }
                     }
                 }
-                complete(messageArray,emailArray)
+                complete(messageArray,emailArray, userProfileImageLinkArray)
             })
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,10 +15,14 @@ class YourMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var yourMessageLabel: UILabel!
     
-    func configureYourMessageCell(forMessageBody message: String, withProfileImage image: String, atCurrentTime time: String) {
+    func configureYourMessageCell(forMessageBody message: String, withProfileImage imageString: String, atCurrentTime time: String) {
         yourMessageLabel.text = message
         currentTimeLabel.text = "Post at \(time)"
-        yourProfileImage.image = UIImage(named: image)
+        DataServices.instance.getUserProfileImage(withImageString: imageString) { (userImage) in
+            DispatchQueue.main.async {
+                self.yourProfileImage.image = userImage
+            }
+        }
     }
     
 }

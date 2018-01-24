@@ -16,6 +16,8 @@ class BoardViewController: UIViewController {
     
     private var messageDataArray = [MessageData]()
     private var userEmailArray = [String]()
+    private var userProfileImageStringArray = [String]()
+    
     var newMessageCount: Int?
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -33,9 +35,10 @@ class BoardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //call func to get messageArray and userEmailArray from DataServices class
-        DataServices.instance.getAllBoardMessagesAndUserEmails { (messageDataArray, userEmailArray) in
+        DataServices.instance.getAllBoardMessagesAndUserEmails { (messageDataArray, userEmailArray, userProfileImageArray) in
             self.messageDataArray = self.customReversedArray(messageDataArray) as! [MessageData]
             self.userEmailArray = self.customReversedArray(userEmailArray) as! [String]
+            self.userProfileImageStringArray = self.customReversedArray(userProfileImageArray) as! [String]
             if self.newMessageCount == nil || self.newMessageCount != messageDataArray.count {
                 self.newMessageCount = messageDataArray.count
                 self.messagesTableView.reloadData()
@@ -52,7 +55,6 @@ class BoardViewController: UIViewController {
         return newArray
     }
     
-
 }
 
 extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,30 +73,15 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messageDataArray[indexPath.row]
-        let imageName = "defaultProfileImage"
+        let imageString = userProfileImageStringArray[indexPath.row]
         if message.senderId == Auth.auth().currentUser?.uid {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "yourMessageCell") as? YourMessageTableViewCell else { return UITableViewCell()}
-            cell.configureYourMessageCell(forMessageBody: message.messageBody, withProfileImage: imageName, atCurrentTime: message.currentTime)
+            cell.configureYourMessageCell(forMessageBody: message.messageBody, withProfileImage: imageString, atCurrentTime: message.currentTime)
             return cell
         }else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "usersMessageCell") as? UsersMessageTableViewCell else { return UITableViewCell() }
-            cell.configureCell(forMessageBody: message.messageBody, withProfileImage: imageName, andProfileName: userEmailArray[indexPath.row], atCurrentTime: message.currentTime)
+            cell.configureCell(forMessageBody: message.messageBody, withProfileImage: imageString, andProfileName: userEmailArray[indexPath.row], atCurrentTime: message.currentTime)
             return cell
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

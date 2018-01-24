@@ -38,7 +38,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendResetPasswordBtnPressed(_ sender: UIButton) {
-        
         if emailForResetPasswordTextField.text != nil && emailForResetPasswordTextField.text != "" {
             guard let email = emailForResetPasswordTextField.text else { return }
             resetPasswordIndicator.isHidden = false
@@ -52,7 +51,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                     self.toShowAlert(message: error?.localizedDescription ?? "Can't reset password now, please try again later.")
                 }
             })
-            
         }else {
             toShowAlert(message: "Please enter your email for reset password.")
         }
@@ -81,11 +79,4 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
-
-//extension ResetPasswordViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
 

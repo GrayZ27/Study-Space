@@ -13,6 +13,7 @@ class MeViewController: UIViewController {
 
     //IBOutlets
     @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
     
@@ -25,36 +26,23 @@ class MeViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         handleProfileImage()
+        userNameLabel.text = Auth.auth().currentUser?.email
         updateUserProfileImage()
     }
     
     func updateUserProfileImage() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        DataServices.instance.getUserProfileImageLink(withUID: uid) { (imageLink) in
-            if imageLink != "" {
-                if let imageURL = URL(string: imageLink) {
-                    URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        }
-                        if let imageData = data {
-                            DispatchQueue.main.async {
-                                self.userProfileImage.image = UIImage(data: imageData)
-                            }
-                        }
-                    }).resume()
-                }
+        DataServices.instance.getCurrentLoginUserImage { (userImage) in
+            DispatchQueue.main.async {
+                self.userProfileImage.image = userImage
             }
         }
     }
     
     //IBOutlets
     @IBAction func logoutUserBtnPressed(_ sender: UIButton) {
-        
         let logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "Logout", style: .default) { action in
-            
             AuthServices.instance.logoutUser { (success, error) in
                 if success {
                     guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") else { return }
@@ -67,11 +55,9 @@ class MeViewController: UIViewController {
                 }
             }
         }
-        
         logoutAlert.addAction(cancelAction)
         logoutAlert.addAction(okAction)
         present(logoutAlert, animated: true, completion: nil)
-        
     }
     
     //func to handle selected profileImage
@@ -104,7 +90,7 @@ extension MeViewController: UIImagePickerControllerDelegate, UINavigationControl
         }
         
         if let image = userProfileImage.image {
-            if let uploadedImageData = UIImagePNGRepresentation(image) {
+            if let uploadedImageData = UIImageJPEGRepresentation(image, 0.1) {
                 DataServices.instance.uploadImageToFirebaseStorage(withImageData: uploadedImageData, whenCompleted: { (success, metaData, error) in
                     if success {
                         if let downloadUrl = metaData?.downloadURL()?.absoluteString {
@@ -119,7 +105,6 @@ extension MeViewController: UIImagePickerControllerDelegate, UINavigationControl
                 })
             }
         }
-        
         dismiss(animated: true, completion: nil)
     }
     

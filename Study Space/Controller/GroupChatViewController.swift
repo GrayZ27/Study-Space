@@ -19,6 +19,7 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
     private var group: GroupData?
     private var groupMessageArray = [MessageData]()
     private var userEmailArray = [String]()
+    private var userProfileImageLink = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,11 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
         
         if group != nil {
             DataServices.instance.REF_GROUPS.child((group?.groupId)!).observe(.value, with: { (dataSnapShot) in
-                DataServices.instance.getGroupMessageAndUserEmail(withGroup: self.group!, whenCompleted: { (messageArray, emailArray) in
+                DataServices.instance.getGroupMessageAndUserEmail(withGroup: self.group!, whenCompleted: { (messageArray, emailArray, userProfileImageLinkArray) in
                     self.groupMessageArray = messageArray
                     self.userEmailArray = emailArray
+                    self.userProfileImageLink = userProfileImageLinkArray
+                    print(self.userProfileImageLink)
                     self.groupChatTableView.reloadData()
                     if self.groupMessageArray.count > 0 {
                         self.groupChatTableView.scrollToRow(at: IndexPath(row: self.groupMessageArray.count - 1, section: 0), at: .none, animated: false)
@@ -122,7 +125,7 @@ extension GroupChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = groupMessageArray[indexPath.row]
-        let imageName = "defaultProfileImage"
+        let imageName = userProfileImageLink[indexPath.row]
         
         if message.senderId == Auth.auth().currentUser?.uid {
             guard let cell = groupChatTableView.dequeueReusableCell(withIdentifier: "groupYourMessageCell") as? GroupYourMessagesTableViewCell else { return UITableViewCell() }

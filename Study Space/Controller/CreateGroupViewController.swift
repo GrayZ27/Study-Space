@@ -20,10 +20,9 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var displayGroupMemeberView: UIView!
     @IBOutlet weak var displaySelectedGroupMembersLabel: UILabel!
     
-    
-    
     private var searchEmailArray = [String]()
     private var selectedEmailArray = [String]()
+    private var userProfileImageArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +48,9 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
             searchedUsersTableView.reloadData()
         }else {
             guard let searchText = addGroupMemberTextField.text else { return }
-            DataServices.instance.getEmail(searchByText: searchText, whenCompleted: { (emailArray) in
+            DataServices.instance.getEmailAndUserProfileImageLink(searchByText: searchText, whenCompleted: { (emailArray, userProfileImageArray) in
                 self.searchEmailArray = emailArray
+                self.userProfileImageArray = userProfileImageArray
                 self.searchedUsersTableView.reloadData()
             })
         }
@@ -119,16 +119,21 @@ extension CreateGroupViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchEmailArray.count
+        if searchEmailArray.count == userProfileImageArray.count {
+            return searchEmailArray.count
+        }else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "displaySearchedUsersCell") as? addGroupMembersTableViewCell else { return UITableViewCell() }
         let email = searchEmailArray[indexPath.row]
+        let profileImageString = userProfileImageArray[indexPath.row]
         if selectedEmailArray.contains(email){
-            cell.configureCell(profileImage: UIImage(named: "defaultProfileImage")!, userName: email, isSelected: true)
+            cell.configureCell(profileImage: profileImageString, userName: email, isSelected: true)
         }else {
-            cell.configureCell(profileImage: UIImage(named: "defaultProfileImage")!, userName: email, isSelected: false)
+            cell.configureCell(profileImage: profileImageString, userName: email, isSelected: false)
         }
         return cell
     }

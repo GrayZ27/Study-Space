@@ -13,9 +13,9 @@ class AuthServices {
     
     static let instance = AuthServices()
     
+    //func to register a new user on Firebase
     func registerUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            
             if let user = user, let userEmail = user.email {
                 let userData: Dictionary<String, Any> = ["provider" : user.providerID, "email": userEmail]
                 DataServices.instance.createDatabaseUser(withUID: user.uid, andUserInfo: userData)
@@ -24,48 +24,41 @@ class AuthServices {
                 complete(false, error)
                 return
             }
-            
         }
     }
     
+    // func to login a user
     func loginUser(withEmail email: String, andPassword password: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            
             if error != nil {
                 complete(false, error)
                 return
             }
-            
             complete(true, nil)
-            
         }
     }
     
+    // func to logout a user
     func logoutUser(whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()) {
         if Auth.auth().currentUser != nil {
-            
             do {
                 try Auth.auth().signOut()
                 complete(true, nil)
             }catch let error as NSError {
                 complete(false, error)
             }
-            
         }
     }
     
+    //func for user to reset frogotten password
     func forgotPasswordReset(withEmail email: String, whenCompleted complete: @escaping (_ completed: Bool, _ error: Error?) -> ()){
-        
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
-            
             if error == nil {
                 complete(true, nil)
             }else {
                 complete(false, error)
             }
-            
         }
-        
     }
     
 }

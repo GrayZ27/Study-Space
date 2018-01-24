@@ -20,16 +20,19 @@ class PostMessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         messageWillPostTextView.delegate = self
         sendingMessageIndicator.isHidden = true
         sendMessageBtn.bindToKeyboard()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         userNameLabel.text = Auth.auth().currentUser?.email
+        DataServices.instance.getCurrentLoginUserImage { (userImage) in
+            DispatchQueue.main.async {
+                self.userProfileImageView.image = userImage
+            }
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -95,14 +98,11 @@ extension PostMessageViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
         if text == "\n" {
             textView.resignFirstResponder()
             return false
         }
-        
         return true
-
     }
     
 }

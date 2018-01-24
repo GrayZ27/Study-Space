@@ -15,10 +15,13 @@ class GroupYourMessagesTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var yourMessageLabel: UILabel!
     
-    func configureGroupYourMessageCell(forYourProfileImage image: String, withYourMessage message: String, atCurrentTime time: String) {
-        yourProfileImage.image = UIImage(named: image)
+    func configureGroupYourMessageCell(forYourProfileImage imageString: String, withYourMessage message: String, atCurrentTime time: String) {
         yourMessageLabel.text = message
         currentTimeLabel.text = time
+        DataServices.instance.getUserProfileImage(withImageString: imageString) { (userImage) in
+            DispatchQueue.main.async {
+                self.yourProfileImage.image = userImage
+            }
+        }
     }
-    
 }
