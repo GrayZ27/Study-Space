@@ -14,8 +14,12 @@ class MeViewController: UIViewController {
     //IBOutlets
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
+    @IBOutlet weak var userPostsTabelView: UITableView!
+   
     let imagePicker = UIImagePickerController()
+    
+    private var userPosts = [MessageData]()
+    private var postIds = [String]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
@@ -23,11 +27,32 @@ class MeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+        handleProfileImage()
+        updateUserProfileImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getUserMessageLoaded()
+    }
+    
+    private func getUserMessageLoaded() {
+        DataServices.instance.getCurrentLoginUserPosts { (messageDataArray, postsIds) in
+            self.userPosts = messageDataArray.reversed()
+            self.postIds = postsIds.reversed()
+            self.userPostsTabelView.reloadData()
+        }
+    }
+    
+    private func setUpView() {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        handleProfileImage()
+        userPostsTabelView.delegate = self
+        userPostsTabelView.dataSource = self
+        userPostsTabelView.estimatedRowHeight = 75
+        userPostsTabelView.rowHeight = UITableViewAutomaticDimension
         userNameLabel.text = Auth.auth().currentUser?.email
-        updateUserProfileImage()
     }
     
     func updateUserProfileImage() {
@@ -113,3 +138,52 @@ extension MeViewController: UIImagePickerControllerDelegate, UINavigationControl
     }
     
 }
+
+extension MeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userPosts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = userPostsTabelView.dequeueReusableCell(withIdentifier: "userPostsCell") as? UserPostsCell else { return UITableViewCell() }
+        let messageData = userPosts[indexPath.row]
+        cell.configureUserPostsCell(withPostBody: messageData.messageBody, andPostTime: "Post at \(messageData.currentTime)")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+            let postId = self.postIds[indexPath.row]
+            DataServices.instance.REF_BOARD.child(postId).removeValue()
+            self.getUserMessageLoaded()
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        return [deleteAction]
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -180,6 +180,27 @@ class DataServices {
         }
     }
 
+    //func to get login user posts and the posts id
+    func getCurrentLoginUserPosts(whenCompleted complete: @escaping (_ messageData: [MessageData], _ postsID: [String]) -> ()) {
+        var messageDataArray = [MessageData]()
+        var postsIdArray = [String]()
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        REF_BOARD.observeSingleEvent(of: .value) { (messageDataSnapShot) in
+            guard let messageData = messageDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            for message in messageData {
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                if senderId == uid {
+                    let messageBody = message.childSnapshot(forPath: "content").value as! String
+                    let time = message.childSnapshot(forPath: "currentTime").value as! String
+                    let data = MessageData.init(forMessageBody: messageBody, withSenderId: senderId, atCurrentTime: time)
+                    messageDataArray.append(data)
+                    postsIdArray.append(message.key)
+                }
+            }
+            complete(messageDataArray,postsIdArray)
+        }
+    }
+    
     //func to get current login user image
     func getCurrentLoginUserImage(whenCompleted complete: @escaping (_ userImage: UIImage) -> ()) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
