@@ -149,6 +149,29 @@ class DataServices {
         }
     }
     
+    // func to get user email and profile image by user search text with filter members
+    func getEmailAndUserProfileImageLinkWithFilterMembers(searchByText text: String, withFilterMembers members: [String], whenCompleted complete: @escaping (_ emailArray: [String], _ imageLink: [String], _ userIds: [String]) -> ()) {
+        var emailArray = [String]()
+        var imageLinkArray = [String]()
+        var userIdsArray = [String]()
+        REF_USERS.observe(.value) { (userDataSnapShot) in
+            guard let userData = userDataSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userData {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                if email.contains(text) == true && members.contains(user.key) == false {
+                    emailArray.append(email)
+                    userIdsArray.append(user.key)
+                    if let userProfileImageString = user.childSnapshot(forPath: "userProfileImageURL").value as? String {
+                        imageLinkArray.append(userProfileImageString)
+                    }else {
+                        imageLinkArray.append("")
+                    }
+                }
+            }
+            complete(emailArray, imageLinkArray, userIdsArray)
+        }
+    }
+    
     //func to return user Image
     func getUserProfileImage(withImageString imageString: String, whenCompleted complete: @escaping (_ image: UIImage) -> ()){
         if imageString != "" {

@@ -109,11 +109,14 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addMoreBtnPressed(_ sender: UIButton) {
         let moreActions = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let addAction = UIAlertAction(title: "Add Members", style: .default) { action in
+        let addAction = UIAlertAction(title: "Add Member", style: .default) { action in
             guard let addGroupMemberVC = self.storyboard?.instantiateViewController(withIdentifier: "AddGroupMemberVC") as?  AddGroupMemberViewController else { return }
             if let members = self.group?.members {
-                addGroupMemberVC.initGroupMembers(withGroupMembers: members)
-                self.presentDetail(addGroupMemberVC)
+                if let id = self.group?.groupId {
+                    addGroupMemberVC.initGroupMembers(withGroupMembers: members)
+                    addGroupMemberVC.initGroupId(withId: id)
+                    self.presentDetail(addGroupMemberVC)
+                }
             }
         }
         let quitAction = UIAlertAction(title: "Quit Group", style: .destructive) { action in

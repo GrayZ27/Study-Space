@@ -12,6 +12,7 @@
 		0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */; };
 		0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71A2004011600B7DADF /* CustomUIButton.swift */; };
 		0625F71D2004056E00B7DADF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71C2004056E00B7DADF /* SignUpViewController.swift */; };
+		062A8196201E4F83005CBF79 /* SearchBarDisplayUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A8195201E4F83005CBF79 /* SearchBarDisplayUserCell.swift */; };
 		063F3C2D201D4E6F003ABAC8 /* AddGroupMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F3C2C201D4E6F003ABAC8 /* AddGroupMemberViewController.swift */; };
 		064B5925200E7410009C6AAD /* addGroupMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B5924200E7410009C6AAD /* addGroupMembersTableViewCell.swift */; };
 		064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtForKeyboard.swift; sourceTree = "<group>"; };
 		0625F71A2004011600B7DADF /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		0625F71C2004056E00B7DADF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		062A8195201E4F83005CBF79 /* SearchBarDisplayUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDisplayUserCell.swift; sourceTree = "<group>"; };
 		063F3C2C201D4E6F003ABAC8 /* AddGroupMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupMemberViewController.swift; sourceTree = "<group>"; };
 		064B5924200E7410009C6AAD /* addGroupMembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGroupMembersTableViewCell.swift; sourceTree = "<group>"; };
 		064C8E881FFEA96700C8C361 /* Study Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 				06BF2E5B2013D96B00C25CBD /* GroupUsersMessagesTableViewCell.swift */,
 				06BF2E5D2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift */,
 				06A29E76201BB0E6007923F8 /* UserPostsCell.swift */,
+				062A8195201E4F83005CBF79 /* SearchBarDisplayUserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				0625F71D2004056E00B7DADF /* SignUpViewController.swift in Sources */,
 				06A29E77201BB0E6007923F8 /* UserPostsCell.swift in Sources */,
 				06BF2E5E2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift in Sources */,
+				062A8196201E4F83005CBF79 /* SearchBarDisplayUserCell.swift in Sources */,
 				064F61242005757500D11C14 /* MeViewController.swift in Sources */,
 				0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */,
 				064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */,
