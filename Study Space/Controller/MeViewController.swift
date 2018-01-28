@@ -158,10 +158,17 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let postId = self.postIds[indexPath.row]
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
-            let postId = self.postIds[indexPath.row]
-            DataServices.instance.REF_BOARD.child(postId).removeValue()
-            self.getUserMessageLoaded()
+            let deleteGroupAlert = UIAlertController(title: "Delete Group", message: "Are you sure you want to delete?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let okAction = UIAlertAction(title: "Delete", style: .default) { action in
+                DataServices.instance.REF_BOARD.child(postId).removeValue()
+                self.getUserMessageLoaded()
+            }
+            deleteGroupAlert.addAction(cancelAction)
+            deleteGroupAlert.addAction(okAction)
+            self.present(deleteGroupAlert, animated: true, completion: nil)
         }
         deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         return [deleteAction]

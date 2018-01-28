@@ -37,14 +37,12 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.groupNameLabel.text = group?.groupName
-        
         if group != nil {
             DataServices.instance.REF_GROUPS.child((group?.groupId)!).observe(.value, with: { (dataSnapShot) in
                 DataServices.instance.getGroupMessageAndUserEmail(withGroup: self.group!, whenCompleted: { (messageArray, emailArray, userProfileImageLinkArray) in
                     self.groupMessageArray = messageArray
                     self.userEmailArray = emailArray
                     self.userProfileImageLink = userProfileImageLinkArray
-                    print(self.userProfileImageLink)
                     self.groupChatTableView.reloadData()
                     if self.groupMessageArray.count > 0 {
                         self.groupChatTableView.scrollToRow(at: IndexPath(row: self.groupMessageArray.count - 1, section: 0), at: .none, animated: false)
@@ -106,6 +104,47 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backBtnWasPressed(_ sender: UIButton) {
         view.endEditing(true)
         dismissDetail()
+    }
+    
+    @IBAction func addMoreBtnPressed(_ sender: UIButton) {
+        let moreActions = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let addAction = UIAlertAction(title: "Add Members", style: .default) { action in
+            guard let addGroupMemberVC = self.storyboard?.instantiateViewController(withIdentifier: "AddGroupMemberVC") as?  AddGroupMemberViewController else { return }
+            if let members = self.group?.members {
+                addGroupMemberVC.initGroupMembers(withGroupMembers: members)
+                self.presentDetail(addGroupMemberVC)
+            }
+        }
+        let quitAction = UIAlertAction(title: "Quit Group", style: .destructive) { action in
+            let quitAlert = UIAlertController(title: "Quit", message: "Quit this group?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let quitAction = UIAlertAction(title: "Quit", style: .default, handler: { (action) in
+                guard let myId = Auth.auth().currentUser?.uid else { return }
+                guard let groupKey = self.group?.groupId else { return }
+                if var members = self.group?.members {
+                    var count = 0
+                    for member in members {
+                        if member == myId {
+                            members.remove(at: count)
+                        }else {
+                            count += 1
+                        }
+                    }
+                    if !members.contains(myId){
+                        DataServices.instance.REF_GROUPS.child(groupKey).updateChildValues(["members" : members])
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            })
+            quitAlert.addAction(cancelAction)
+            quitAlert.addAction(quitAction)
+            self.present(quitAlert, animated: true, completion: nil)
+        }
+        moreActions.addAction(cancelAction)
+        moreActions.addAction(addAction)
+        moreActions.addAction(quitAction)
+        present(moreActions, animated: true, completion: nil)
     }
     
 }

@@ -23,6 +23,10 @@ class GroupViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        getGroupsToDisplay()
+    }
+    
+    private func getGroupsToDisplay() {
         DataServices.instance.REF_GROUPS.observe(.value) { (dataSnapShot) in
             DataServices.instance.getGroups { (groupDataArray) in
                 self.groupArray = groupDataArray
@@ -58,6 +62,23 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         guard let groupChatVC = storyboard?.instantiateViewController(withIdentifier: "GroupChatVC") as? GroupChatViewController else { return }
         groupChatVC.initGroup(forGroup: groupArray[indexPath.row])
         presentDetail(groupChatVC)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let groupKey = groupArray[indexPath.row].groupId
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+            let deleteGroupAlert = UIAlertController(title: "Delete Group", message: "Are you sure you want to delete?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let okAction = UIAlertAction(title: "Delete", style: .default) { action in
+                DataServices.instance.REF_GROUPS.child(groupKey).removeValue()
+                self.getGroupsToDisplay()
+            }
+            deleteGroupAlert.addAction(cancelAction)
+            deleteGroupAlert.addAction(okAction)
+            self.present(deleteGroupAlert, animated: true, completion: nil)
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        return [deleteAction]
     }
     
 }

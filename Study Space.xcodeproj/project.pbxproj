@@ -12,6 +12,7 @@
 		0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */; };
 		0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71A2004011600B7DADF /* CustomUIButton.swift */; };
 		0625F71D2004056E00B7DADF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0625F71C2004056E00B7DADF /* SignUpViewController.swift */; };
+		063F3C2D201D4E6F003ABAC8 /* AddGroupMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F3C2C201D4E6F003ABAC8 /* AddGroupMemberViewController.swift */; };
 		064B5925200E7410009C6AAD /* addGroupMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B5924200E7410009C6AAD /* addGroupMembersTableViewCell.swift */; };
 		064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */; };
 		064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C8E8D1FFEA96700C8C361 /* BoardViewController.swift */; };
@@ -47,6 +48,7 @@
 		0617D21520082BA60092CCFE /* UIViewExtForKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtForKeyboard.swift; sourceTree = "<group>"; };
 		0625F71A2004011600B7DADF /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		0625F71C2004056E00B7DADF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		063F3C2C201D4E6F003ABAC8 /* AddGroupMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupMemberViewController.swift; sourceTree = "<group>"; };
 		064B5924200E7410009C6AAD /* addGroupMembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGroupMembersTableViewCell.swift; sourceTree = "<group>"; };
 		064C8E881FFEA96700C8C361 /* Study Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		064C8E8B1FFEA96700C8C361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,9 +135,10 @@
 			children = (
 				064C8E8D1FFEA96700C8C361 /* BoardViewController.swift */,
 				0617D2102007F3370092CCFE /* PostMessageViewController.swift */,
-				064C8E8F1FFEA96700C8C361 /* GroupViewController.swift */,
 				06F903E3200AAB6D00FECBCB /* CreateGroupViewController.swift */,
+				064C8E8F1FFEA96700C8C361 /* GroupViewController.swift */,
 				06BF2E592013D48900C25CBD /* GroupChatViewController.swift */,
+				063F3C2C201D4E6F003ABAC8 /* AddGroupMemberViewController.swift */,
 				064F61232005757500D11C14 /* MeViewController.swift */,
 				06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */,
 				0625F71C2004056E00B7DADF /* SignUpViewController.swift */,
@@ -360,6 +363,7 @@
 				06E33BB9200FE79C007E4B19 /* GroupData.swift in Sources */,
 				06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */,
 				0617D21620082BA60092CCFE /* UIViewExtForKeyboard.swift in Sources */,
+				063F3C2D201D4E6F003ABAC8 /* AddGroupMemberViewController.swift in Sources */,
 				066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */,
 				064C8E8E1FFEA96700C8C361 /* BoardViewController.swift in Sources */,
 				06FDB46920093D5800491CD4 /* MessageData.swift in Sources */,
