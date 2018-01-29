@@ -344,8 +344,75 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-xb-RsT">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fs1-hx-uhk" userLabel="Members Profile Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="m2h-Zk-Rqt"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="profileImageCell" rowHeight="60" id="Tge-OQ-k6F" customClass="ProfileImageCell" customModule="Study_Space" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tge-OQ-k6F" id="5ku-UH-Qdw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u0S-jZ-P5O">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="uRv-Eu-WKK">
+                                                                <size key="itemSize" width="36" height="33"/>
+                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                            </collectionViewFlowLayout>
+                                                            <cells>
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileImageCollectionCell" id="80m-kf-N6q" customClass="ProfileImageCollectionViewCell" customModule="Study_Space" customModuleProvider="target">
+                                                                    <rect key="frame" x="5" y="13.5" width="36" height="33"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="33"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-QJ-Ihx" customClass="CustomImageView" customModule="Study_Space" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="33"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                    </view>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="hQU-QJ-Ihx" firstAttribute="top" secondItem="80m-kf-N6q" secondAttribute="top" id="2tw-XF-udl"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="hQU-QJ-Ihx" secondAttribute="trailing" id="JEa-zN-e6J"/>
+                                                                        <constraint firstItem="hQU-QJ-Ihx" firstAttribute="leading" secondItem="80m-kf-N6q" secondAttribute="leading" id="QKY-zk-MsS"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="hQU-QJ-Ihx" secondAttribute="bottom" id="Te2-f3-BAP"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <outlet property="profileImage" destination="hQU-QJ-Ihx" id="jnH-nu-u5l"/>
+                                                                    </connections>
+                                                                </collectionViewCell>
+                                                            </cells>
+                                                            <connections>
+                                                                <outlet property="dataSource" destination="Tge-OQ-k6F" id="psE-Rk-TgX"/>
+                                                                <outlet property="delegate" destination="Tge-OQ-k6F" id="3c9-c9-eYM"/>
+                                                            </connections>
+                                                        </collectionView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="u0S-jZ-P5O" firstAttribute="top" secondItem="5ku-UH-Qdw" secondAttribute="top" id="8RT-B4-3lZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="u0S-jZ-P5O" secondAttribute="bottom" id="CjE-MR-MuI"/>
+                                                        <constraint firstItem="u0S-jZ-P5O" firstAttribute="leading" secondItem="5ku-UH-Qdw" secondAttribute="leading" id="DqV-iF-SRS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="u0S-jZ-P5O" secondAttribute="trailing" id="nmH-fK-XDj"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dys-h8-0dJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
+                                        <rect key="frame" x="0.0" y="60" width="375" height="497"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="separatorColor" red="1" green="0.95433120140000005" blue="0.97307888590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
@@ -475,15 +542,18 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.25515213609999998" green="0.27285820249999998" blue="0.31181350349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Dys-h8-0dJ" firstAttribute="leading" secondItem="nMq-xb-RsT" secondAttribute="leading" id="3HR-cC-Rtg"/>
+                                    <constraint firstAttribute="trailing" secondItem="fs1-hx-uhk" secondAttribute="trailing" id="5SO-aj-acN"/>
                                     <constraint firstAttribute="trailing" secondItem="Dys-h8-0dJ" secondAttribute="trailing" id="7Wi-ST-nHg"/>
                                     <constraint firstAttribute="trailing" secondItem="Q29-cx-4Rf" secondAttribute="trailing" id="7q0-jL-DOu"/>
-                                    <constraint firstItem="Dys-h8-0dJ" firstAttribute="top" secondItem="nMq-xb-RsT" secondAttribute="top" id="8Mg-fj-uBv"/>
                                     <constraint firstItem="Q29-cx-4Rf" firstAttribute="leading" secondItem="nMq-xb-RsT" secondAttribute="leading" id="TF4-Tl-jeF"/>
+                                    <constraint firstItem="Dys-h8-0dJ" firstAttribute="top" secondItem="fs1-hx-uhk" secondAttribute="bottom" id="i2e-Z2-bTR"/>
+                                    <constraint firstItem="fs1-hx-uhk" firstAttribute="top" secondItem="nMq-xb-RsT" secondAttribute="top" id="kH5-R8-Wkm"/>
                                     <constraint firstItem="Q29-cx-4Rf" firstAttribute="top" secondItem="Dys-h8-0dJ" secondAttribute="bottom" id="lHf-93-Gu0"/>
                                     <constraint firstAttribute="bottom" secondItem="Q29-cx-4Rf" secondAttribute="bottom" id="vSG-Pk-FYE"/>
+                                    <constraint firstItem="fs1-hx-uhk" firstAttribute="leading" secondItem="nMq-xb-RsT" secondAttribute="leading" id="xpL-j8-JlL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-ZD-Jo5">
@@ -545,11 +615,12 @@
                         <outlet property="groupChatTableView" destination="Dys-h8-0dJ" id="GfG-XL-1aq"/>
                         <outlet property="groupNameLabel" destination="7YF-vP-Rxl" id="VLX-aR-r3i"/>
                         <outlet property="groupTextField" destination="Q29-cx-4Rf" id="LBu-jo-mea"/>
+                        <outlet property="membersProfileImageTableView" destination="fs1-hx-uhk" id="bRE-QA-R15"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujx-ey-los" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="1146"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="1145.577211394303"/>
         </scene>
         <!--Add Group Member View Controller-->
         <scene sceneID="w8o-Ml-tNd">

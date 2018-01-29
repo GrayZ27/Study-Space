@@ -27,11 +27,13 @@
 		066FC3C12002C73500DC20E0 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C02002C73500DC20E0 /* CustomUITextField.swift */; };
 		066FC3C32002CAC700DC20E0 /* ShadowUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */; };
 		066FC3C52002CF4F00DC20E0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FC3C42002CF4F00DC20E0 /* AuthServices.swift */; };
+		069193FE201FD79E00AE102A /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069193FD201FD79E00AE102A /* ProfileImageCollectionViewCell.swift */; };
 		06A29E77201BB0E6007923F8 /* UserPostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A29E76201BB0E6007923F8 /* UserPostsCell.swift */; };
 		06AFA09D1FFEE65A00AB61B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */; };
 		06BF2E5A2013D48900C25CBD /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF2E592013D48900C25CBD /* GroupChatViewController.swift */; };
 		06BF2E5C2013D96B00C25CBD /* GroupUsersMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF2E5B2013D96B00C25CBD /* GroupUsersMessagesTableViewCell.swift */; };
 		06BF2E5E2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF2E5D2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift */; };
+		06CF4C6D201FAE0A00100A33 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF4C6C201FAE0A00100A33 /* ProfileImageCell.swift */; };
 		06D542732006A38700FBEFE2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */; };
 		06E33BB7200FD95D007E4B19 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E33BB6200FD95D007E4B19 /* GroupTableViewCell.swift */; };
 		06E33BB9200FE79C007E4B19 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E33BB8200FE79C007E4B19 /* GroupData.swift */; };
@@ -66,11 +68,13 @@
 		066FC3C02002C73500DC20E0 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		066FC3C22002CAC700DC20E0 /* ShadowUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUIView.swift; sourceTree = "<group>"; };
 		066FC3C42002CF4F00DC20E0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		069193FD201FD79E00AE102A /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		06A29E76201BB0E6007923F8 /* UserPostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsCell.swift; sourceTree = "<group>"; };
 		06AFA09C1FFEE65A00AB61B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06BF2E592013D48900C25CBD /* GroupChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		06BF2E5B2013D96B00C25CBD /* GroupUsersMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersMessagesTableViewCell.swift; sourceTree = "<group>"; };
 		06BF2E5D2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupYourMessagesTableViewCell.swift; sourceTree = "<group>"; };
+		06CF4C6C201FAE0A00100A33 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		06D542722006A38700FBEFE2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		06E33BB6200FD95D007E4B19 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		06E33BB8200FE79C007E4B19 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				06BF2E5D2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift */,
 				06A29E76201BB0E6007923F8 /* UserPostsCell.swift */,
 				062A8195201E4F83005CBF79 /* SearchBarDisplayUserCell.swift */,
+				06CF4C6C201FAE0A00100A33 /* ProfileImageCell.swift */,
+				069193FD201FD79E00AE102A /* ProfileImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				06BF2E5E2013D98500C25CBD /* GroupYourMessagesTableViewCell.swift in Sources */,
 				062A8196201E4F83005CBF79 /* SearchBarDisplayUserCell.swift in Sources */,
 				064F61242005757500D11C14 /* MeViewController.swift in Sources */,
+				06CF4C6D201FAE0A00100A33 /* ProfileImageCell.swift in Sources */,
 				0625F71B2004011600B7DADF /* CustomUIButton.swift in Sources */,
 				064C8E8C1FFEA96700C8C361 /* AppDelegate.swift in Sources */,
 				06BF2E5C2013D96B00C25CBD /* GroupUsersMessagesTableViewCell.swift in Sources */,
@@ -375,6 +382,7 @@
 				06FDB4632009374000491CD4 /* UsersMessageTableViewCell.swift in Sources */,
 				0617D2112007F3370092CCFE /* PostMessageViewController.swift in Sources */,
 				064C8EAC1FFEB59200C8C361 /* DataServices.swift in Sources */,
+				069193FE201FD79E00AE102A /* ProfileImageCollectionViewCell.swift in Sources */,
 				06E33BB7200FD95D007E4B19 /* GroupTableViewCell.swift in Sources */,
 				06FE0DB72017B4C300C8F975 /* CustomImageView.swift in Sources */,
 			);

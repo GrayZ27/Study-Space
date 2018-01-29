@@ -15,6 +15,8 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var groupChatTableView: UITableView!
     @IBOutlet weak var groupTextField: UITextField!
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var membersProfileImageTableView: UITableView!
+    
     
     private var group: GroupData?
     private var groupMessageArray = [MessageData]()
@@ -32,6 +34,8 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
         groupChatTableView.rowHeight = UITableViewAutomaticDimension
         groupChatTableView.delegate = self
         groupChatTableView.dataSource = self
+        membersProfileImageTableView.delegate = self
+        membersProfileImageTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +54,7 @@ class GroupChatViewController: UIViewController, UITextFieldDelegate {
                 })
             })
         }
+        membersProfileImageTableView.reloadData()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -159,25 +164,42 @@ extension GroupChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if groupMessageArray.count == userEmailArray.count {
-            return groupMessageArray.count
+        if tableView == membersProfileImageTableView {
+            return 1
+        }
+        
+        if tableView == groupChatTableView {
+            if groupMessageArray.count == userEmailArray.count {
+                return groupMessageArray.count
+            }
+            return 0
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = groupMessageArray[indexPath.row]
-        let imageName = userProfileImageLink[indexPath.row]
-        
-        if message.senderId == Auth.auth().currentUser?.uid {
-            guard let cell = groupChatTableView.dequeueReusableCell(withIdentifier: "groupYourMessageCell") as? GroupYourMessagesTableViewCell else { return UITableViewCell() }
-            cell.configureGroupYourMessageCell(forYourProfileImage: imageName, withYourMessage: message.messageBody, atCurrentTime: message.currentTime)
-            return cell
-        }else {
-            guard let cell = groupChatTableView.dequeueReusableCell(withIdentifier: "groupUsersMessageCell") as? GroupUsersMessagesTableViewCell else { return UITableViewCell() }
-            cell.configureGroupUserMessageCell(forUserProfileImage: imageName, withUserName: userEmailArray[indexPath.row], andUserMessage: message.messageBody, atCurrentTime: message.currentTime)
+        if tableView == membersProfileImageTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileImageCell") as? ProfileImageCell else { return UITableViewCell() }
+            if let memberIds = group?.members {
+                cell.initCellInfo(withMemberId: memberIds)
+            }
             return cell
         }
+        
+        if tableView == groupChatTableView {
+            let message = groupMessageArray[indexPath.row]
+            let imageName = userProfileImageLink[indexPath.row]
+            if message.senderId == Auth.auth().currentUser?.uid {
+                guard let cell = groupChatTableView.dequeueReusableCell(withIdentifier: "groupYourMessageCell") as? GroupYourMessagesTableViewCell else { return UITableViewCell() }
+                cell.configureGroupYourMessageCell(forYourProfileImage: imageName, withYourMessage: message.messageBody, atCurrentTime: message.currentTime)
+                return cell
+            }else {
+                guard let cell = groupChatTableView.dequeueReusableCell(withIdentifier: "groupUsersMessageCell") as? GroupUsersMessagesTableViewCell else { return UITableViewCell() }
+                cell.configureGroupUserMessageCell(forUserProfileImage: imageName, withUserName: userEmailArray[indexPath.row], andUserMessage: message.messageBody, atCurrentTime: message.currentTime)
+                return cell
+            }
+        }
+        return UITableViewCell()
     }
 }
 
